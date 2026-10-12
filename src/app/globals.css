@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/*
+ * Transit signage world: enamel-white ground, navy station bands,
+ * three line colours (1 Clients, 2 Agences, 3 Audit). See DESIGN.md.
+ */
+:root {
+  --paper: #f2f4f5;
+  --plate: #ffffff;
+  --ink: #12161c;
+  --ink-2: #48505c;
+  --rule: #d3d9df;
+  --band: #0e2140;
+  --band-2: #17305a;
+  --band-ink: #ffffff;
+  --band-ink-2: #c3cbd8;
+  --line-1: #d63a22;
+  --line-2: #1f57c3;
+  --line-3: #f2b705;
+  --line-1-soft: #fbe3de;
+  --line-2-soft: #dfe8f8;
+  --line-3-soft: #fdf1cc;
+  --focus: #1f57c3;
+  --radius-plate: 14px;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-plate: var(--plate);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-rule: var(--rule);
+  --color-band: var(--band);
+  --color-band-2: var(--band-2);
+  --color-band-ink: var(--band-ink);
+  --color-band-ink-2: var(--band-ink-2);
+  --color-line-1: var(--line-1);
+  --color-line-2: var(--line-2);
+  --color-line-3: var(--line-3);
+  --color-line-1-soft: var(--line-1-soft);
+  --color-line-2-soft: var(--line-2-soft);
+  --color-line-3-soft: var(--line-3-soft);
+  --font-sans: "Overpass Variable", "Overpass", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Overpass Mono", ui-monospace, monospace;
+  --radius-plate: var(--radius-plate);
+  --ease-signal: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-feature-settings: "kern", "liga";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--line-3);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .on-band :focus-visible {
+    outline-color: var(--line-3);
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+  }
+
+  input,
+  textarea,
+  select {
+    caret-color: var(--line-1);
+  }
+
+  html {
+    scrollbar-color: var(--band-2) var(--paper);
+  }
+}
+
+@layer components {
+  /* Enamel station plate: the world's main surface. */
+  .plate {
+    background: var(--plate);
+    border-radius: var(--radius-plate);
+    box-shadow:
+      0 1px 0 rgb(14 33 64 / 0.06),
+      0 10px 30px -18px rgb(14 33 64 / 0.35);
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Network map: hovering or focusing one line dims the others. */
+.network[data-active="clients"] [data-line]:not([data-line="clients"]),
+.network[data-active="agencies"] [data-line]:not([data-line="agencies"]),
+.network[data-active="audit"] [data-line]:not([data-line="audit"]) {
+  opacity: 0.18;
+}
+
+.network [data-line] {
+  transition: opacity 320ms var(--ease-signal);
+}
+
+.network [data-line-path] {
+  transition: stroke-width 320ms var(--ease-signal);
+}
+
+.network[data-active="clients"] [data-line="clients"] [data-line-path],
+.network[data-active="agencies"] [data-line="agencies"] [data-line-path],
+.network[data-active="audit"] [data-line="audit"] [data-line-path] {
+  stroke-width: 20;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .train {
+    display: none;
+  }
+}

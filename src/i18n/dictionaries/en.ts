@@ -1,0 +1,215 @@
+import type { Dictionary } from "./fr";
+
+const en: Dictionary = {
+  meta: {
+    title: "Romain / Dev · Freelance web developer in Charleroi, Belgium",
+    description:
+      "Websites, online shops and web apps that run in production: Stripe payments, Supabase, multilingual. Free audit and quote, by video call or on site in Belgium.",
+  },
+  brand: {
+    name: "Romain / Dev",
+    by: "By Romain Dumoulin",
+    location: "Charleroi, Belgium / remote",
+  },
+  nav: {
+    skip: "Skip to content",
+    main: "Main navigation",
+    projects: "Projects",
+    contact: "Get in touch",
+    menu: "Menu",
+    close: "Close",
+    language: "Language",
+    switchTo: "Français",
+    switchToShort: "FR",
+  },
+  cta: {
+    terminus: "Free audit & quote",
+    terminusSub: "By video call or on site in Belgium",
+    contact: "Get in touch",
+    similar: "A similar project? Let's talk",
+  },
+  home: {
+    title: "Web apps that run smoothly in production.",
+    lead: "I design, build and fix websites and apps that take real payments, handle real data and speak several languages.",
+    mapLabel: "Network map: three lines leading to contact",
+    chooseLine: "Pick your line",
+    projectsTitle: "Projects in service",
+    projectsIntro: "Four projects I led from start to finish, running today for real clients.",
+    caseStudy: "Read the case study",
+    privateCode: "Private code",
+    linesTitle: "Three lines, one terminus",
+    linesIntro: "Wherever you start from, I take you to the same place: a product that holds up in production.",
+    lines: {
+      clients: {
+        title: "You have a website, shop or app project",
+        body: "Freelancers, small businesses, non-profits: I handle everything from the first sketch to launch, and explain every choice without jargon.",
+        points: ["Showcase sites and online booking", "Shops with Stripe payments", "Custom business apps", "Multilingual websites"],
+        cta: "Let's talk about your project",
+      },
+      agencies: {
+        title: "You run an agency or a dev team",
+        body: "A reliable extra pair of hands on Next.js, Supabase and Stripe, working inside your repo and your conventions.",
+        points: ["Day rate or fixed price", "White label and NDA", "French and English"],
+        cta: "See the Agencies line",
+      },
+      audit: {
+        title: "You vibe-coded an app that has to hold up",
+        body: "Lovable, Bolt, Cursor, v0 or Claude Code got you far. I check what breaks before your users do.",
+        points: ["Security and data access", "Payments and webhooks", "Going to production"],
+        cta: "See the Code review line",
+      },
+    },
+    methodTitle: "How we work together",
+    methodSteps: [
+      {
+        title: "A first conversation",
+        body: "By video call, or on site if you are in Belgium. You explain what you need, I ask the right questions.",
+      },
+      {
+        title: "Free audit and quote",
+        body: "I look at what exists, tell you what is needed and what is not, with a clear price.",
+      },
+      {
+        title: "Built step by step",
+        body: "You watch the product take shape on a demo address and approve each step.",
+      },
+      {
+        title: "Launch and follow-up",
+        body: "I put it in production, train you if needed and stay reachable when it needs to evolve.",
+      },
+    ],
+  },
+  contact: {
+    title: "Terminus: let's talk about your project",
+    lead: "Describe your project in a few lines. I answer personally, and the first audit and the quote are free.",
+    pageTitle: "Get in touch",
+    pageLead:
+      "A project, a reinforcement or an app to put back on track: write to me. Free first audit and quote, by video call or on site in Belgium.",
+    form: {
+      name: "Your name",
+      email: "Your e-mail",
+      type: "Which line are you on?",
+      types: {
+        client: "I have a project",
+        agency: "I need reinforcement (agency, team)",
+        audit: "I want my app reviewed",
+      },
+      mode: "First conversation",
+      modes: {
+        visio: "Video call",
+        onsite: "On site (Belgium)",
+        any: "No preference",
+      },
+      message: "Your project",
+      messageHint: "What you want to build or fix, and by when. A link is welcome.",
+      submit: "Send my request",
+      sending: "Sending…",
+      successTitle: "Request sent",
+      successBody: "Thank you! I will answer personally, as soon as I can.",
+      privacy: "Your details are only used to answer you.",
+      errors: {
+        name: "Please enter your name.",
+        email: "Please enter a valid e-mail address so I can answer you.",
+        message: "Describe your project in a few words (at least 20 characters).",
+        generic: "Sending failed. Please try again in a moment.",
+        unavailable: "The form is temporarily unavailable. Please try again a little later.",
+      },
+    },
+  },
+  agencies: {
+    metaTitle: "Next.js, Supabase and Stripe reinforcement for agencies",
+    metaDescription:
+      "Freelance developer for agencies and teams: Next.js, React, TypeScript, Supabase, Stripe. Day rate or fixed price, white label, NDA. Charleroi, Belgium / remote.",
+    title: "Next.js, Supabase and Stripe reinforcement that ships in your repo.",
+    lead: "A project running late, a payment feature to plug in, or a team that needs breathing room. I fit into the way you work and ship code you can review.",
+    stackTitle: "What I run in production",
+    stack: [
+      { title: "Front end", items: ["Next.js (App Router, Server Actions)", "React 19", "TypeScript", "Tailwind CSS", "Multilingual i18n"] },
+      { title: "Data", items: ["Supabase: Postgres, Auth, Storage", "Row-level security (RLS)", "SQL migrations"] },
+      { title: "Payments", items: ["Stripe Checkout", "Signed webhooks", "Stripe Connect", "Pre-authorisations and refunds"] },
+      { title: "Quality", items: ["Playwright", "Vitest and Jest", "Accessibility", "Vercel deployment"] },
+    ],
+    workTitle: "How I work in your repo",
+    work: [
+      { title: "Your conventions first", body: "I read your code before writing mine, and follow your style, tools and structure." },
+      { title: "Branches and pull requests", body: "Short, reviewable PRs with a clear description of what changes and why." },
+      { title: "Tests and documentation", body: "I cover what I touch and leave a written trail of decisions for whoever comes next." },
+      { title: "AI agents, with method", body: "I use AI agents every day, with written rules and reviews. The speed gain does not cost quality." },
+    ],
+    termsTitle: "Terms",
+    terms: [
+      { label: "Formats", value: "Day rate or fixed price per batch" },
+      { label: "Confidentiality", value: "White label and NDA, no problem" },
+      { label: "Languages", value: "French and English" },
+      { label: "Based in", value: "Charleroi, Belgium / remote" },
+    ],
+    codeTitle: "Code you can read",
+    codeIntro: "Part of my work is public. Judge for yourself.",
+    code: [
+      { name: "Championship manager", note: "Multisport business app in JavaScript, Jest tests", url: "https://github.com/Romaincapp/Gestionnaire-de-championnats" },
+      { name: "Camping du Wignet", note: "Multilingual booking site and its test suite", url: "https://github.com/Romaincapp/camping" },
+      { name: "Esenca Sport calendar", note: "Disability sport calendar fed by Google Calendar, Playwright tests", url: "https://github.com/Romaincapp/Esenca-Sport" },
+    ],
+    cta: "Need reinforcement? Write to me",
+  },
+  audit: {
+    metaTitle: "Vibe-coded app review: security, payments, going to production",
+    metaDescription:
+      "Your app built with Lovable, Bolt, Cursor, v0 or Claude Code works? Get it checked before your users find the gaps. Free first audit, by video call or on site in Belgium.",
+    title: "Your vibe-coded app works. Let's make it solid.",
+    lead: "You validated your idea with Lovable, Bolt, Cursor, v0 or Claude Code: well done, that is the hard part. Before opening to real users and real payments, I check what the AI let slip.",
+    toolsLabel: "Tools covered",
+    tools: ["Lovable", "Bolt", "Cursor", "v0", "Replit", "Claude Code"],
+    checksTitle: "The questions I ask your code",
+    checksIntro: "Problems I have already met and fixed in my own products in production.",
+    checks: [
+      { area: "Data", q: "Can a user read someone else's data by changing an ID?" },
+      { area: "Keys", q: "Does a secret key (Supabase service_role, Stripe, OpenAI) end up in the code sent to the browser?" },
+      { area: "Payments", q: "Do your Stripe webhooks verify the signature? What happens when a payment is refunded or disputed?" },
+      { area: "Access", q: "Are admin pages protected on the server, not just hidden in the interface?" },
+      { area: "Production", q: "Are environment variables, e-mails and errors ready for real users?" },
+      { area: "Quality", q: "Is the code readable enough for you (or another dev) to evolve it without breaking everything?" },
+    ],
+    offerTitle: "How it works",
+    offer: [
+      { title: "Free audit", body: "I read your code and configuration, on a video call with you or on site in Belgium." },
+      { title: "Prioritised report", body: "What is urgent, what can wait, what is fine as it is. No unnecessary jargon." },
+      { title: "Fixes", body: "I fix what needs fixing, or guide you through it, with a clear quote." },
+      { title: "Going to production", body: "Deployment, e-mails, live payments, and follow-up if you want it." },
+    ],
+    promiseTitle: "We keep what works",
+    promise:
+      "I do not rewrite your app on principle. The goal is to secure and strengthen what exists, not to start from scratch.",
+    proofTitle: "Why me",
+    proof:
+      "I build WelcomeApp and the Dandyshoes shop with AI agents every day. I know where they go wrong: Supabase access rules that are too broad, unverified webhooks, forgotten refunds.",
+    cta: "Get my app reviewed",
+  },
+  project: {
+    backToProjects: "All projects",
+    lines: "Lines",
+    context: "Context",
+    challenge: "The challenge",
+    solution: "What I built",
+    result: "The result",
+    stack: "Technologies",
+    links: "See it live",
+    privateCode: "This project's code is private.",
+    next: "Next station",
+  },
+  footer: {
+    tagline: "Freelance web developer. Websites, shops and apps that run in production.",
+    sitemap: "Site map",
+    elsewhere: "Elsewhere",
+    github: "GitHub",
+    source: "This site's source code",
+    rights: "All rights reserved.",
+  },
+  notFound: {
+    title: "This station does not exist",
+    body: "The page you asked for is not on the network. Head back home or write to me.",
+    home: "Back to home",
+  },
+};
+
+export default en;
