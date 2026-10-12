@@ -21,6 +21,7 @@ const en: Dictionary = {
     language: "Language",
     switchTo: "Français",
     switchToShort: "FR",
+    theme: "Toggle theme",
   },
   cta: {
     terminus: "Free audit & quote",
@@ -31,32 +32,73 @@ const en: Dictionary = {
   home: {
     title: "Web apps that run smoothly in production.",
     lead: "I design, build and fix websites and apps that take real payments, handle real data and speak several languages.",
-    mapLabel: "Network map: three lines leading to contact",
-    chooseLine: "Pick your line",
+    seeProjects: "See projects",
+    available: "Available for new projects",
+    terminal: {
+      title: "Example audit",
+      command: "npx romain-dev audit ./my-app",
+      lines: [
+        { kind: "ok", text: "Environment variables: no secret key exposed to the client" },
+        { kind: "fail", text: "Supabase: table \"orders\" has no RLS policy" },
+        { kind: "fail", text: "Stripe: webhook accepted without signature check" },
+        { kind: "warn", text: "Refunds: order status never updated" },
+        { kind: "ok", text: "Production build: OK" },
+      ],
+      summary: "3 issues to fix before launch",
+    },
     projectsTitle: "Projects in service",
     projectsIntro: "Four projects I led from start to finish, running today for real clients.",
     caseStudy: "Read the case study",
     privateCode: "Private code",
-    linesTitle: "Three lines, one terminus",
-    linesIntro: "Wherever you start from, I take you to the same place: a product that holds up in production.",
-    lines: {
+    audiencesTitle: "One developer, three ways to work together",
+    audiencesIntro: "Whether you start from an idea, a team or an app that already exists, the goal is the same: a product that holds up in production.",
+    audiences: {
       clients: {
         title: "You have a website, shop or app project",
         body: "Freelancers, small businesses, non-profits: I handle everything from the first sketch to launch, and explain every choice without jargon.",
         points: ["Showcase sites and online booking", "Shops with Stripe payments", "Custom business apps", "Multilingual websites"],
         cta: "Let's talk about your project",
+        snippet: {
+          title: "deliverables.md",
+          lines: [
+            "- [x] Mockup approved with you",
+            "- [x] Fast, accessible, multilingual site",
+            "- [x] Online payment (Stripe)",
+            "- [x] Launch + domain name",
+            "- [ ] Your project?",
+          ],
+        },
       },
       agencies: {
         title: "You run an agency or a dev team",
         body: "A reliable extra pair of hands on Next.js, Supabase and Stripe, working inside your repo and your conventions.",
         points: ["Day rate or fixed price", "White label and NDA", "French and English"],
-        cta: "See the Agencies line",
+        cta: "See the agency offer",
+        snippet: {
+          title: "git log --oneline",
+          lines: [
+            "a1f3c2e feat(checkout): Stripe Checkout + signed webhooks",
+            "9be41d0 test(e2e): purchase flow with Playwright",
+            "4c7d8aa fix(rls): restrict reads to the owner",
+            "2e90b15 docs: architecture decisions",
+          ],
+        },
       },
       audit: {
         title: "You vibe-coded an app that has to hold up",
         body: "Lovable, Bolt, Cursor, v0 or Claude Code got you far. I check what breaks before your users do.",
         points: ["Security and data access", "Payments and webhooks", "Going to production"],
-        cta: "See the Code review line",
+        cta: "See the code review",
+        snippet: {
+          title: "fix.sql",
+          lines: [
+            "alter table orders enable row level security;",
+            "",
+            "create policy \"Read own orders\"",
+            "  on orders for select",
+            "  using (auth.uid() = user_id);",
+          ],
+        },
       },
     },
     methodTitle: "How we work together",
@@ -80,7 +122,7 @@ const en: Dictionary = {
     ],
   },
   contact: {
-    title: "Terminus: let's talk about your project",
+    title: "Let's talk about your project",
     lead: "Describe your project in a few lines. I answer personally, and the first audit and the quote are free.",
     pageTitle: "Get in touch",
     pageLead:
@@ -88,7 +130,7 @@ const en: Dictionary = {
     form: {
       name: "Your name",
       email: "Your e-mail",
-      type: "Which line are you on?",
+      type: "Your request",
       types: {
         client: "I have a project",
         agency: "I need reinforcement (agency, team)",
@@ -187,7 +229,7 @@ const en: Dictionary = {
   },
   project: {
     backToProjects: "All projects",
-    lines: "Lines",
+    audiences: "For",
     context: "Context",
     challenge: "The challenge",
     solution: "What I built",
@@ -195,7 +237,9 @@ const en: Dictionary = {
     stack: "Technologies",
     links: "See it live",
     privateCode: "This project's code is private.",
-    next: "Next station",
+    next: "Next project",
+    public: "Public",
+    private: "Private",
   },
   footer: {
     tagline: "Freelance web developer. Websites, shops and apps that run in production.",
@@ -206,8 +250,8 @@ const en: Dictionary = {
     rights: "All rights reserved.",
   },
   notFound: {
-    title: "This station does not exist",
-    body: "The page you asked for is not on the network. Head back home or write to me.",
+    title: "Page not found",
+    body: "This page does not exist or has moved. Head back home or write to me.",
     home: "Back to home",
   },
 };

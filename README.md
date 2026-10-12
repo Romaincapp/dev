@@ -1,17 +1,17 @@
 # Romain / Dev
 
-Portfolio of Romain Dumoulin, freelance web developer (Charleroi, Belgium / remote). It is bilingual (FR/EN) and built as a transit network: three lines, one per audience, all lead to the contact form.
+Portfolio of Romain Dumoulin, freelance web developer (Charleroi, Belgium / remote). It is bilingual (FR/EN) and designed like a developer-tool product site (GitHub, Supabase, Stripe), with light and dark themes. It serves three audiences, and every page ends on the contact form.
 
-| Line | Audience | Page |
+| Audience | Who | Page |
 | --- | --- | --- |
-| 1 · Clients | Small businesses, independents, non-profits | `/fr`, `/en` + case studies |
-| 2 · Agencies & devs | Subcontracting, team reinforcement | `/fr/agences`, `/en/agencies` |
-| 3 · Code review | Vibe-coded apps to make solid | `/fr/audit`, `/en/code-review` |
+| Clients | Small businesses, independents, non-profits | `/fr`, `/en` + case studies |
+| Agencies & devs | Subcontracting, team reinforcement | `/fr/agences`, `/en/agencies` |
+| Code review | Vibe-coded apps to make solid | `/fr/audit`, `/en/code-review` |
 
 ## Stack
 
 - **Framework**: Next.js 16 (App Router, Cache Components) and TypeScript.
-- **UI**: Tailwind CSS 4 and shadcn/ui primitives on Radix (`src/components/ui`), with Overpass self-hosted through Fontsource.
+- **UI**: Tailwind CSS 4 and shadcn/ui primitives on Radix (`src/components/ui`), with Geist Sans and Geist Mono (`geist` package).
 - **i18n**: no library.
   - Dictionaries live in `src/i18n/dictionaries/`.
   - Routes use `[lang]`, and French slugs are rewritten in `next.config.ts`.
@@ -23,7 +23,7 @@ Portfolio of Romain Dumoulin, freelance web developer (Charleroi, Belgium / remo
 ## Content
 
 - Projects: `src/data/projects.ts` (bilingual text, stack, links, images).
-- Lines (audiences): `src/data/lines.ts`.
+- Audiences: `src/data/audiences.ts`.
 - All site copy: `src/i18n/dictionaries/fr.ts` and `en.ts` (the EN dictionary is type-checked against the FR one).
 
 ## Development

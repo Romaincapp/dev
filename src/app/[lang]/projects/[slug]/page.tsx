@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { hasLocale, href, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { projectBySlug, projects } from "@/data/projects";
-import { lineById } from "@/data/lines";
+import { audiences } from "@/data/audiences";
 import { alternates } from "@/lib/metadata";
-import { LineBadge } from "@/components/line-badge";
-import { ProjectVisual } from "@/components/project-station";
+import { ProjectVisual, RepoMeta, StackTags } from "@/components/project-showcase";
 import { ContactSection } from "@/components/contact-section";
 
 export function generateStaticParams() {
@@ -34,122 +33,87 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
   if (!hasLocale(lang) || !project) notFound();
   const dict = getDictionary(lang);
   const copy = dict.project;
-  const index = projects.indexOf(project);
-  const next = projects[(index + 1) % projects.length];
-  const githubLink = project.links.find((link) => link.url.includes("github.com"));
-  const primaryLine = lineById(project.lines[0]);
+  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const hasPublicCode = project.links.some((link) => link.url.includes("github.com"));
+  const audienceNames = project.audiences.map((id) => audiences.find((a) => a.id === id)!.name[lang]);
 
   return (
     <>
       <article>
-        <header className="relative overflow-hidden">
-          <div aria-hidden className="absolute inset-x-0 top-[8.25rem] flex -translate-y-1/2 flex-col gap-1">
-            {project.lines.map((id) => (
-              <span key={id} className="h-2.5" style={{ background: lineById(id).color }} />
-            ))}
-          </div>
-          <div className="relative mx-auto max-w-[90rem] px-4 pt-8 pb-14 sm:px-6 lg:px-10">
+        <header className="relative overflow-hidden border-b border-border">
+          <div aria-hidden className="hero-grid absolute inset-0" />
+          <div className="relative mx-auto max-w-6xl px-4 pt-8 pb-14 sm:px-6 lg:pb-20">
             <Link
               href={`${href(lang, "home")}#projects`}
-              className="inline-flex min-h-11 items-center gap-2 font-semibold text-ink-2 hover:text-ink"
+              className="inline-flex min-h-10 items-center gap-1.5 text-sm text-fg-muted hover:text-fg"
             >
               <ArrowLeft className="size-4" aria-hidden />
               {copy.backToProjects}
             </Link>
-            <div className="mt-6 flex w-fit items-center gap-3 rounded-full bg-paper py-1 pr-4">
-              <span
-                className="flex h-16 items-center rounded-full border-[6px] border-ink bg-plate px-5 font-mono text-xl font-bold"
-                aria-hidden
-              >
-                {project.code}
-              </span>
-              <span className="sr-only">{copy.lines} :</span>
-              {project.lines.map((id) => (
-                <LineBadge key={id} line={lineById(id)} size="lg" />
-              ))}
-            </div>
-            <h1 className="mt-10 text-[clamp(2.6rem,7vw,6rem)] font-black leading-[0.95] tracking-[-0.035em]">
-              {project.name}
-            </h1>
-            <p className="mt-6 max-w-[48ch] text-xl text-ink-2 sm:text-2xl">{project.tagline[lang]}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              {project.figure ? (
-                <p className="rounded-[8px] bg-line-3 px-3 py-1.5 text-lg font-black tabular">{project.figure[lang]}</p>
-              ) : null}
-              {project.links
-                .filter((link) => !link.url.includes("github.com"))
-                .map((link) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    className="inline-flex h-11 items-center gap-1.5 rounded-full bg-plate px-4 font-semibold shadow-[inset_0_0_0_1.5px_var(--rule)] hover:shadow-[inset_0_0_0_2px_var(--ink)]"
-                  >
-                    {link.label[lang]}
-                    <ArrowUpRight className="size-4" aria-hidden />
-                  </a>
-                ))}
+            <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:items-center">
+              <div className="flex flex-col gap-5">
+                <RepoMeta project={project} dict={dict} />
+                <h1 className="text-4xl font-semibold tracking-[-0.045em] sm:text-6xl">{project.name}</h1>
+                <p className="max-w-[48ch] text-lg text-fg-muted sm:text-xl">{project.tagline[lang]}</p>
+                {project.figure ? (
+                  <p className="w-fit rounded-md bg-accent-soft px-2.5 py-1 text-sm font-medium text-accent-text tabular">
+                    {project.figure[lang]}
+                  </p>
+                ) : null}
+                <div className="flex flex-wrap gap-2">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      className="inline-flex h-9 items-center gap-1.5 rounded-md border border-border bg-bg px-3 text-sm font-medium hover:bg-bg-muted"
+                    >
+                      {link.label[lang]}
+                      <ArrowUpRight className="size-3.5" aria-hidden />
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <ProjectVisual project={project} lang={lang} />
             </div>
           </div>
         </header>
 
-        <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-10">
-          <div className="plate overflow-hidden">
-            <ProjectVisual project={project} lang={lang} className="min-h-80 lg:min-h-[32rem]" />
-          </div>
-        </div>
-
-        <div className="mx-auto grid max-w-[90rem] gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-20 lg:px-10 lg:py-28">
-          <div className="flex flex-col gap-14">
+        <div className="mx-auto grid max-w-6xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-20 lg:py-24">
+          <div className="flex flex-col gap-12">
             <section aria-labelledby="context">
-              <h2 id="context" className="text-3xl font-black">{copy.context}</h2>
-              <p className="mt-4 max-w-[62ch] text-lg leading-relaxed">{project.context[lang]}</p>
+              <h2 id="context" className="text-2xl font-semibold">{copy.context}</h2>
+              <p className="mt-3 max-w-[65ch] text-fg-muted">{project.context[lang]}</p>
             </section>
             <section aria-labelledby="challenge">
-              <h2 id="challenge" className="text-3xl font-black">{copy.challenge}</h2>
-              <p className="mt-4 max-w-[62ch] text-lg leading-relaxed">{project.challenge[lang]}</p>
+              <h2 id="challenge" className="text-2xl font-semibold">{copy.challenge}</h2>
+              <p className="mt-3 max-w-[65ch] text-fg-muted">{project.challenge[lang]}</p>
             </section>
             <section aria-labelledby="solution">
-              <h2 id="solution" className="text-3xl font-black">{copy.solution}</h2>
-              <ol className="relative mt-6 grid gap-6 pl-10">
-                <span aria-hidden className="absolute top-2 bottom-2 left-[9px] w-2 rounded-full" style={{ background: primaryLine.color }} />
+              <h2 id="solution" className="text-2xl font-semibold">{copy.solution}</h2>
+              <ul className="mt-5 grid gap-4">
                 {project.solution.map((step) => (
-                  <li key={step.fr} className="relative max-w-[62ch] text-lg leading-relaxed">
-                    <span aria-hidden className="absolute top-[0.35em] -left-10 size-[26px] rounded-full border-[5px] border-ink bg-plate" />
-                    {step[lang]}
+                  <li key={step.fr} className="flex max-w-[65ch] gap-3">
+                    <Check className="mt-1 size-4 shrink-0 text-accent-text" aria-hidden />
+                    <span>{step[lang]}</span>
                   </li>
                 ))}
-              </ol>
+              </ul>
             </section>
-            <section aria-labelledby="result" className="rounded-[var(--radius-plate)] bg-band p-6 text-band-ink sm:p-10">
-              <h2 id="result" className="text-3xl font-black">{copy.result}</h2>
-              <p className="mt-4 max-w-[56ch] text-xl leading-relaxed">{project.result[lang]}</p>
+            <section aria-labelledby="result" className="rounded-xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
+              <h2 id="result" className="text-2xl font-semibold">{copy.result}</h2>
+              <p className="mt-3 max-w-[60ch] text-lg">{project.result[lang]}</p>
             </section>
           </div>
 
-          <aside className="flex flex-col gap-10 lg:sticky lg:top-28 lg:self-start">
-            <div>
-              <h2 className="text-xl font-black">{copy.stack}</h2>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <li key={tech} className="rounded-full bg-plate px-3 py-1.5 text-[0.95rem] font-semibold shadow-[inset_0_0_0_1.5px_var(--rule)]">
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-xl font-black">{copy.links}</h2>
-              <ul className="mt-4 grid gap-2">
-                {project.links.map((link) => (
-                  <li key={link.url}>
-                    <a href={link.url} className="inline-flex min-h-10 items-center gap-1.5 font-semibold underline decoration-rule decoration-2 hover:decoration-ink">
-                      {link.label[lang]}
-                      <ArrowUpRight className="size-4" aria-hidden />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              {!githubLink ? <p className="mt-3 text-ink-2">{copy.privateCode}</p> : null}
+          <aside className="flex flex-col gap-8 lg:sticky lg:top-24 lg:self-start">
+            <div className="rounded-xl border border-border p-5">
+              <h2 className="text-sm font-semibold">{copy.stack}</h2>
+              <div className="mt-3">
+                <StackTags stack={project.stack} />
+              </div>
+              <h2 className="mt-6 text-sm font-semibold">{copy.audiences}</h2>
+              <p className="mt-2 text-sm text-fg-muted">{audienceNames.join(" · ")}</p>
+              {!hasPublicCode ? <p className="mt-6 text-sm text-fg-muted">{copy.privateCode}</p> : null}
             </div>
             {project.secondaryImage ? (
               <Image
@@ -157,23 +121,23 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
                 alt={project.secondaryImage.alt[lang]}
                 width={project.secondaryImage.width}
                 height={project.secondaryImage.height}
-                sizes="(min-width: 1024px) 30vw, 100vw"
-                className="plate h-auto w-full max-w-sm"
+                sizes="(min-width: 1024px) 22rem, 100vw"
+                className="h-auto w-full rounded-xl border border-border"
               />
             ) : null}
           </aside>
         </div>
 
-        <nav aria-label={copy.next} className="mx-auto max-w-[90rem] px-4 pb-20 sm:px-6 lg:px-10">
+        <nav aria-label={copy.next} className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
           <Link
             href={href(lang, "projects", next.slug)}
-            className="plate group flex items-center gap-5 p-6 transition-transform duration-300 ease-(--ease-signal) hover:-translate-y-0.5 sm:p-8"
+            className="group flex items-center gap-4 rounded-xl border border-border p-6 transition-colors hover:border-border-strong hover:bg-bg-subtle"
           >
-            <span className="text-[clamp(1.6rem,3vw,2.5rem)] font-black leading-tight">
-              <span className="font-semibold text-ink-2">{copy.next} : </span>
+            <span className="text-xl font-semibold sm:text-2xl">
+              <span className="font-normal text-fg-muted">{copy.next}{lang === "fr" ? " : " : ": "}</span>
               <span className="group-hover:underline">{next.name}</span>
             </span>
-            <ArrowRight className="ml-auto size-8 shrink-0 transition-transform duration-300 ease-(--ease-signal) group-hover:translate-x-1" aria-hidden />
+            <ArrowRight className="ml-auto size-5 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />
           </Link>
         </nav>
       </article>

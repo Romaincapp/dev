@@ -5,9 +5,8 @@ import { track } from "@vercel/analytics";
 import { ArrowRight, CircleCheck } from "lucide-react";
 import { sendContact, type ContactState } from "@/app/actions/contact";
 import type { Locale } from "@/i18n/config";
-import { lines } from "@/data/lines";
+import { audiences } from "@/data/audiences";
 import { cn } from "@/lib/utils";
-import { LineBadge } from "./line-badge";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -60,23 +59,23 @@ export function ContactForm({
 
   if (state.status === "success") {
     return (
-      <div ref={statusRef} tabIndex={-1} role="status" className="plate flex flex-col gap-3 p-8 outline-none">
-        <CircleCheck className="size-10 text-line-2" aria-hidden />
-        <p className="text-2xl font-black tracking-[-0.02em]">{copy.successTitle}</p>
-        <p className="text-ink-2">{copy.successBody}</p>
+      <div ref={statusRef} tabIndex={-1} role="status" className="panel flex flex-col gap-3 p-8 outline-none">
+        <CircleCheck className="size-8 text-accent-text" aria-hidden />
+        <p className="text-xl font-semibold">{copy.successTitle}</p>
+        <p className="text-fg-muted">{copy.successBody}</p>
       </div>
     );
   }
 
   const fieldError = (field: "name" | "email" | "message") =>
     invalid.includes(field) ? (
-      <p id={`${id}-${field}-error`} className="text-sm font-semibold text-[#b02e1a]">
+      <p id={`${id}-${field}-error`} className="text-sm text-danger">
         {copy.errors[field]}
       </p>
     ) : null;
 
   return (
-    <form action={action} className="plate relative grid gap-6 p-6 sm:p-8">
+    <form action={action} className="panel relative grid gap-6 p-6 sm:p-8">
       <input type="hidden" name="locale" value={lang} />
       <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
@@ -86,22 +85,22 @@ export function ContactForm({
       </div>
 
       <fieldset className="grid gap-3">
-        <legend className="mb-3 text-[0.95rem] font-semibold">{copy.type}</legend>
+        <legend className="mb-3 text-sm font-medium">{copy.type}</legend>
         <div className="grid gap-2 sm:grid-cols-3">
-          {lines.map((line) => (
+          {audiences.map((audience) => (
             <label
-              key={line.id}
-              className="group relative flex min-h-14 cursor-pointer items-center gap-3 rounded-[10px] bg-paper px-3 py-2 text-[0.95rem] leading-tight font-semibold shadow-[inset_0_0_0_1.5px_var(--rule)] transition-shadow has-checked:bg-plate has-checked:shadow-[inset_0_0_0_2.5px_var(--ink)] has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus)"
+              key={audience.id}
+              className="relative flex min-h-14 cursor-pointer items-center gap-3 rounded-md border border-border bg-bg px-3 py-2 text-sm leading-tight font-medium transition-colors hover:bg-bg-muted has-checked:border-accent has-checked:bg-accent-soft has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent"
             >
               <input
                 type="radio"
                 name="type"
-                value={line.requestType}
-                defaultChecked={line.requestType === checkedType}
-                className="sr-only"
+                value={audience.requestType}
+                defaultChecked={audience.requestType === checkedType}
+                className="peer sr-only"
               />
-              <LineBadge line={line} size="sm" />
-              {copy.types[line.requestType]}
+              <span aria-hidden className="size-4 shrink-0 rounded-full border border-border-strong bg-bg peer-checked:border-[5px] peer-checked:border-accent" />
+              {copy.types[audience.requestType]}
             </label>
           ))}
         </div>
@@ -139,12 +138,12 @@ export function ContactForm({
       </div>
 
       <fieldset>
-        <legend className="mb-3 text-[0.95rem] font-semibold">{copy.mode}</legend>
+        <legend className="mb-3 text-sm font-medium">{copy.mode}</legend>
         <div className="flex flex-wrap gap-2">
           {(Object.keys(copy.modes) as (keyof typeof copy.modes)[]).map((mode) => (
             <label
               key={mode}
-              className="flex h-11 cursor-pointer items-center rounded-full bg-paper px-4 text-[0.95rem] font-semibold shadow-[inset_0_0_0_1.5px_var(--rule)] has-checked:bg-band has-checked:text-band-ink has-checked:shadow-none has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus)"
+              className="flex h-9 cursor-pointer items-center rounded-full border border-border bg-bg px-3.5 text-sm font-medium text-fg-muted transition-colors hover:text-fg has-checked:border-fg has-checked:bg-fg has-checked:text-bg has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-accent"
             >
               <input type="radio" name="mode" value={mode} defaultChecked={mode === checkedMode} className="sr-only" />
               {copy.modes[mode]}
@@ -155,7 +154,7 @@ export function ContactForm({
 
       <div className="grid gap-2">
         <Label htmlFor={`${id}-message`}>{copy.message}</Label>
-        <p id={`${id}-message-hint`} className="-mt-1 text-sm text-ink-2">
+        <p id={`${id}-message-hint`} className="-mt-1 text-xs text-fg-muted">
           {copy.messageHint}
         </p>
         <Textarea
@@ -171,14 +170,14 @@ export function ContactForm({
       </div>
 
       {state.status === "error" ? (
-        <p role="alert" className="rounded-[10px] bg-line-1-soft px-4 py-3 font-semibold text-[#8f2414]">
+        <p role="alert" className="rounded-md border border-danger/40 bg-danger-soft px-4 py-3 text-sm text-danger">
           {copy.errors[state.reason]}
         </p>
       ) : null}
 
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <p className="text-sm text-ink-2">{copy.privacy}</p>
-        <Button type="submit" size="lg" disabled={pending} aria-disabled={pending}>
+        <p className="text-xs text-fg-muted">{copy.privacy}</p>
+        <Button type="submit" disabled={pending} aria-disabled={pending}>
           {pending ? copy.sending : copy.submit}
           <ArrowRight aria-hidden />
         </Button>

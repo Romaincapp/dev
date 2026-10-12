@@ -4,12 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu } from "lucide-react";
 import { alternatePath, href, type Locale } from "@/i18n/config";
-import { lines } from "@/data/lines";
-import { lineHref } from "@/lib/links";
-import { LineBadge } from "./line-badge";
+import { Brand } from "./brand";
+import { ThemeToggle } from "./theme-toggle";
 import { TrackedLink } from "./tracked-link";
 import { Button } from "./ui/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger, SheetClose } from "./ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 type HeaderCopy = {
   brand: { name: string; by: string };
@@ -19,102 +18,106 @@ type HeaderCopy = {
     contact: string;
     menu: string;
     close: string;
-    language: string;
     switchTo: string;
     switchToShort: string;
+    theme: string;
   };
+  links: { agencies: string; audit: string };
 };
 
 export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
   const pathname = usePathname() ?? `/${lang}`;
   const other: Locale = lang === "fr" ? "en" : "fr";
   const contactHref = href(lang, "contact");
+  const links = [
+    { href: `${href(lang, "home")}#projects`, label: copy.nav.projects },
+    { href: href(lang, "agencies"), label: copy.links.agencies },
+    { href: href(lang, "audit"), label: copy.links.audit },
+  ];
 
   return (
-    <header className="on-band sticky top-0 z-40 bg-band text-band-ink">
-      <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center gap-3 px-4 sm:gap-6 sm:px-6 lg:px-10">
-        <Link href={href(lang, "home")} className="group flex shrink-0 flex-col leading-none">
-          <span className="text-[1.35rem] font-black tracking-[-0.03em]">
-            Romain <span className="text-line-3">/</span> Dev
-          </span>
-          <span className="mt-1 text-[0.72rem] font-medium tracking-[0.02em] text-band-ink-2">{copy.brand.by}</span>
+    <header className="sticky top-0 z-40 border-b border-border bg-bg">
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:gap-6 sm:px-6">
+        <Link href={href(lang, "home")} className="shrink-0 rounded-md">
+          <Brand by={copy.brand.by} />
         </Link>
 
-        <nav aria-label={copy.nav.main} className="ml-auto hidden items-center gap-1 lg:flex">
-          {lines.map((line) => (
+        <nav aria-label={copy.nav.main} className="ml-4 hidden items-center gap-1 md:flex">
+          {links.map((link) => (
             <Link
-              key={line.id}
-              href={lineHref(lang, line.route)}
-              className="flex h-11 items-center gap-2 rounded-full px-3 text-[0.95rem] font-semibold text-band-ink-2 transition-colors hover:bg-white/8 hover:text-band-ink"
+              key={link.href}
+              href={link.href}
+              className="rounded-md px-3 py-2 text-sm font-medium text-fg-muted transition-colors hover:bg-bg-muted hover:text-fg"
             >
-              <LineBadge line={line} size="sm" />
-              {line.name[lang]}
+              {link.label}
             </Link>
           ))}
+        </nav>
+
+        <div className="ml-auto flex items-center gap-2">
           <Link
             href={alternatePath(pathname, other)}
             hrefLang={other}
             lang={other}
-            className="ml-2 flex h-11 items-center rounded-full px-3 text-sm font-bold tracking-wide text-band-ink-2 hover:bg-white/8 hover:text-band-ink"
             aria-label={copy.nav.switchTo}
+            className="hidden h-9 items-center rounded-md px-2.5 font-mono text-xs font-medium text-fg-muted hover:bg-bg-muted hover:text-fg md:inline-flex"
           >
             {copy.nav.switchToShort}
           </Link>
-        </nav>
+          <span className="hidden md:inline-flex">
+            <ThemeToggle label={copy.nav.theme} />
+          </span>
+          <Button asChild size="sm">
+            <TrackedLink href={contactHref} location="header">
+              {copy.nav.contact}
+              <ArrowRight aria-hidden />
+            </TrackedLink>
+          </Button>
 
-        <Button asChild variant="signal" className="ml-auto h-10 px-4 text-sm sm:h-11 sm:px-5 sm:text-[0.98rem] lg:ml-2">
-          <TrackedLink href={contactHref} location="header">
-            {copy.nav.contact}
-            <ArrowRight aria-hidden />
-          </TrackedLink>
-        </Button>
-
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="-mr-2 text-band-ink hover:bg-white/10 lg:hidden">
-              <Menu className="size-6" aria-hidden />
-              <span className="sr-only">{copy.nav.menu}</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent closeLabel={copy.nav.close} aria-describedby={undefined}>
-            <SheetTitle className="px-6 pt-6 text-xl font-black">
-              Romain <span className="text-line-3">/</span> Dev
-            </SheetTitle>
-            <nav aria-label={copy.nav.main} className="mt-8 flex flex-col gap-1 px-4">
-              {lines.map((line) => (
-                <SheetClose asChild key={line.id}>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="size-5" aria-hidden />
+                <span className="sr-only">{copy.nav.menu}</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent closeLabel={copy.nav.close} aria-describedby={undefined}>
+              <SheetTitle className="px-5 pt-5">
+                <Brand by={copy.brand.by} />
+              </SheetTitle>
+              <nav aria-label={copy.nav.main} className="mt-6 flex flex-col px-3">
+                {links.map((link) => (
+                  <SheetClose asChild key={link.href}>
+                    <Link href={link.href} className="flex min-h-12 items-center rounded-md px-3 text-base font-medium hover:bg-bg-muted">
+                      {link.label}
+                    </Link>
+                  </SheetClose>
+                ))}
+                <SheetClose asChild>
                   <Link
-                    href={lineHref(lang, line.route)}
-                    className="flex min-h-14 items-center gap-3 rounded-xl px-3 text-lg font-semibold hover:bg-white/8"
+                    href={alternatePath(pathname, other)}
+                    hrefLang={other}
+                    lang={other}
+                    className="flex min-h-12 items-center rounded-md px-3 text-base font-medium text-fg-muted hover:bg-bg-muted"
                   >
-                    <LineBadge line={line} />
-                    {line.name[lang]}
+                    {copy.nav.switchTo}
                   </Link>
                 </SheetClose>
-              ))}
-              <SheetClose asChild>
-                <Link
-                  href={alternatePath(pathname, other)}
-                  hrefLang={other}
-                  lang={other}
-                  className="mt-2 flex min-h-12 items-center rounded-xl px-3 font-semibold text-band-ink-2 hover:bg-white/8"
-                >
-                  {copy.nav.switchTo}
-                </Link>
-              </SheetClose>
-            </nav>
-            <div className="mt-auto p-6">
-              <SheetClose asChild>
-                <Button asChild variant="signal" size="lg" className="w-full">
-                  <TrackedLink href={contactHref} location="mobile-menu">
-                    {copy.nav.contact}
-                    <ArrowRight aria-hidden />
-                  </TrackedLink>
-                </Button>
-              </SheetClose>
-            </div>
-          </SheetContent>
-        </Sheet>
+              </nav>
+              <div className="mt-auto flex items-center gap-3 border-t border-border p-5">
+                <ThemeToggle label={copy.nav.theme} />
+                <SheetClose asChild>
+                  <Button asChild className="flex-1">
+                    <TrackedLink href={contactHref} location="mobile-menu">
+                      {copy.nav.contact}
+                      <ArrowRight aria-hidden />
+                    </TrackedLink>
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

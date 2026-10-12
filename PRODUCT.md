@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Next.js (App Router, TypeScript) + Tailwind CSS + shadcn/ui, next-intl (FR/EN), Resend for the contact form, deployed on Vercel. Chosen by Romain.
+Next.js (App Router, TypeScript) + Tailwind CSS + shadcn/ui, FR/EN dictionaries, Resend for the contact form, deployed on Vercel. Chosen by Romain.
 
 ## Users
 
@@ -32,6 +32,11 @@ Romain builds and runs real web products in production himself: payments (Stripe
 - Based in Charleroi, Belgium, and works remotely.
 - Site languages: French (default) and English.
 - Contact only through the form. Romain's e-mail is never displayed or committed; it is a server-side environment variable.
+
+## Brand Commitments
+
+- Visual reference chosen by Romain (2026-10-12): developer-tool product sites, specifically GitHub, Supabase and Stripe. Play that category standard straight and at their craft level; the earlier "transit map" direction was rejected as "not dev enough".
+- Light and dark themes, following the visitor's system setting, with a manual toggle.
 
 ## Capabilities and Constraints
 

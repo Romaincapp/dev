@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, href } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { lineById } from "@/data/lines";
 import { alternates } from "@/lib/metadata";
-import { LineHero, RailSection } from "@/components/line-page";
+import { PageHero, SectionHeader } from "@/components/page-hero";
 import { ContactSection } from "@/components/contact-section";
-import { MethodLine } from "@/components/method-line";
+import { Steps } from "@/components/steps";
+import { Terminal } from "@/components/terminal";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/code-review">): Promise<Metadata> {
   const { lang } = await params;
@@ -24,56 +24,56 @@ export default async function AuditPage({ params }: PageProps<"/[lang]/code-revi
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
   const copy = dict.audit;
-  const line = lineById("audit");
 
   return (
     <>
-      <LineHero
-        line={line}
-        title={copy.title}
-        lead={copy.lead}
-        cta={copy.cta}
-        ctaHref={`${href(lang, "audit")}#contact`}
-        location="audit-hero"
-      >
-        <div className="mt-8 flex flex-col gap-3">
-          <p className="font-semibold text-ink-2">{copy.toolsLabel}</p>
-          <ul className="flex flex-wrap gap-2">
-            {copy.tools.map((tool) => (
-              <li key={tool} className="rounded-full bg-plate px-4 py-2 font-semibold shadow-[inset_0_0_0_1.5px_var(--rule)]">
-                {tool}
+      <PageHero title={copy.title} lead={copy.lead} cta={copy.cta} ctaHref={`${href(lang, "audit")}#contact`} location="audit-hero">
+        <div className="mt-8 flex flex-wrap items-center gap-2">
+          <span className="mr-1 text-sm text-fg-muted">{copy.toolsLabel}</span>
+          {copy.tools.map((tool) => (
+            <span key={tool} className="rounded-full border border-border bg-bg px-3 py-1 text-sm font-medium">
+              {tool}
+            </span>
+          ))}
+        </div>
+      </PageHero>
+
+      <section aria-labelledby="checks" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+        <SectionHeader id="checks" title={copy.checksTitle} intro={copy.checksIntro} />
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-start">
+          <ul className="divide-y divide-border rounded-xl border border-border">
+            {copy.checks.map((check) => (
+              <li key={check.area} className="grid gap-2 p-5 sm:grid-cols-[7.5rem_1fr] sm:gap-5">
+                <span className="h-fit w-fit rounded-md border border-border bg-bg-subtle px-2 py-0.5 text-xs font-medium text-fg-muted sm:mt-0.5">{check.area}</span>
+                <p className="font-medium">{check.q}</p>
               </li>
             ))}
           </ul>
-        </div>
-      </LineHero>
-
-      <RailSection line={line} id="checks" title={copy.checksTitle} intro={copy.checksIntro} tone="plate">
-        <ul className="grid gap-px overflow-hidden rounded-[var(--radius-plate)] bg-rule md:grid-cols-2">
-          {copy.checks.map((check) => (
-            <li key={check.area} className="flex flex-col gap-3 bg-plate p-6 sm:p-8">
-              <span className="w-fit rounded-[6px] bg-line-3 px-2.5 py-1 text-sm font-bold text-ink">
-                {check.area}
-              </span>
-              <p className="text-xl font-semibold leading-snug">{check.q}</p>
-            </li>
-          ))}
-        </ul>
-      </RailSection>
-
-      <RailSection line={line} id="offer" title={copy.offerTitle}>
-        <MethodLine steps={copy.offer} />
-      </RailSection>
-
-      <RailSection line={line} id="promise" title={copy.promiseTitle} tone="plate">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <p className="max-w-[48ch] text-xl leading-relaxed">{copy.promise}</p>
-          <div className="rounded-[var(--radius-plate)] bg-band p-6 text-band-ink sm:p-8">
-            <h3 className="text-2xl font-black">{copy.proofTitle}</h3>
-            <p className="mt-3 text-band-ink-2">{copy.proof}</p>
+          <div className="lg:sticky lg:top-24">
+            <Terminal copy={dict.home.terminal} />
           </div>
         </div>
-      </RailSection>
+      </section>
+
+      <section aria-labelledby="offer" className="border-y border-border bg-bg-subtle">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+          <SectionHeader id="offer" title={copy.offerTitle} />
+          <Steps steps={copy.offer} />
+        </div>
+      </section>
+
+      <section aria-labelledby="promise" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionHeader id="promise" title={copy.promiseTitle} />
+            <p className="max-w-[52ch] text-lg text-fg-muted">{copy.promise}</p>
+          </div>
+          <div className="rounded-xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
+            <h3 className="text-xl font-semibold">{copy.proofTitle}</h3>
+            <p className="mt-3">{copy.proof}</p>
+          </div>
+        </div>
+      </section>
 
       <ContactSection lang={lang} dict={dict} defaultType="audit" title={copy.cta} />
     </>

@@ -19,6 +19,7 @@ const fr = {
     language: "Langue",
     switchTo: "English",
     switchToShort: "EN",
+    theme: "Changer de thème",
   },
   cta: {
     terminus: "Audit & devis gratuits",
@@ -29,33 +30,74 @@ const fr = {
   home: {
     title: "Des applis web qui roulent en production.",
     lead: "Je conçois, je construis et je remets d'aplomb des sites et des applications qui encaissent de vrais paiements, gèrent de vraies données et parlent plusieurs langues.",
-    mapLabel: "Plan du réseau : trois lignes qui mènent au contact",
-    chooseLine: "Choisissez votre ligne",
+    seeProjects: "Voir les projets",
+    available: "Disponible pour de nouveaux projets",
+    terminal: {
+      title: "Exemple d'audit",
+      command: "npx romain-dev audit ./mon-app",
+      lines: [
+        { kind: "ok", text: "Variables d'environnement : aucune clé secrète côté client" },
+        { kind: "fail", text: "Supabase : la table \"orders\" n'a pas de règle RLS" },
+        { kind: "fail", text: "Stripe : webhook reçu sans vérification de signature" },
+        { kind: "warn", text: "Remboursements : statut de commande jamais mis à jour" },
+        { kind: "ok", text: "Build de production : OK" },
+      ],
+      summary: "3 points à corriger avant la mise en ligne",
+    },
     projectsTitle: "Projets en service",
     projectsIntro:
       "Quatre projets que j'ai menés de bout en bout et qui tournent aujourd'hui pour de vrais clients.",
     caseStudy: "Voir l'étude de cas",
     privateCode: "Code privé",
-    linesTitle: "Trois lignes, un seul terminus",
-    linesIntro: "Selon d'où vous partez, je vous emmène au même endroit : un produit qui tient en production.",
-    lines: {
+    audiencesTitle: "Un développeur, trois façons de travailler ensemble",
+    audiencesIntro: "Que vous partiez d'une idée, d'une équipe ou d'une app déjà codée, l'objectif est le même : un produit qui tient en production.",
+    audiences: {
       clients: {
         title: "Vous avez un projet de site, de boutique ou d'appli",
         body: "Indépendants, PME, associations : je m'occupe de tout, du premier croquis à la mise en ligne, en vous expliquant chaque choix sans jargon.",
         points: ["Sites vitrines et réservation en ligne", "Boutiques avec paiement Stripe", "Applications métier sur mesure", "Sites en plusieurs langues"],
         cta: "Parlons de votre projet",
+        snippet: {
+          title: "livrables.md",
+          lines: [
+            "- [x] Maquette validée avec vous",
+            "- [x] Site rapide, accessible, multilingue",
+            "- [x] Paiement en ligne (Stripe)",
+            "- [x] Mise en ligne + nom de domaine",
+            "- [ ] Votre projet ?",
+          ],
+        },
       },
       agencies: {
         title: "Vous êtes une agence ou une équipe de devs",
         body: "Un renfort fiable sur Next.js, Supabase et Stripe, qui s'insère dans votre repo et vos conventions.",
         points: ["Régie ou forfait", "Marque blanche et NDA", "Français et anglais"],
-        cta: "Voir la ligne Agences",
+        cta: "Découvrir l'offre agences",
+        snippet: {
+          title: "git log --oneline",
+          lines: [
+            "a1f3c2e feat(checkout): Stripe Checkout + webhooks signés",
+            "9be41d0 test(e2e): parcours d'achat avec Playwright",
+            "4c7d8aa fix(rls): lecture limitée au propriétaire",
+            "2e90b15 docs: décisions d'architecture",
+          ],
+        },
       },
       audit: {
         title: "Vous avez vibe-codé une app qui doit tenir",
         body: "Lovable, Bolt, Cursor, v0 ou Claude Code vous ont mené loin. Je vérifie ce qui casse avant vos utilisateurs.",
         points: ["Sécurité et accès aux données", "Paiements et webhooks", "Mise en production"],
-        cta: "Voir la ligne Audit",
+        cta: "Découvrir l'audit",
+        snippet: {
+          title: "fix.sql",
+          lines: [
+            "alter table orders enable row level security;",
+            "",
+            "create policy \"Lecture de ses commandes\"",
+            "  on orders for select",
+            "  using (auth.uid() = user_id);",
+          ],
+        },
       },
     },
     methodTitle: "Comment on avance ensemble",
@@ -79,7 +121,7 @@ const fr = {
     ],
   },
   contact: {
-    title: "Terminus : parlons de votre projet",
+    title: "Parlons de votre projet",
     lead: "Décrivez votre projet en quelques lignes. Je vous réponds personnellement, et le premier audit comme le devis sont gratuits.",
     pageTitle: "Me contacter",
     pageLead:
@@ -87,7 +129,7 @@ const fr = {
     form: {
       name: "Votre nom",
       email: "Votre e-mail",
-      type: "Vous êtes sur quelle ligne ?",
+      type: "Votre demande",
       types: {
         client: "J'ai un projet",
         agency: "Je cherche un renfort (agence, équipe)",
@@ -186,7 +228,7 @@ const fr = {
   },
   project: {
     backToProjects: "Tous les projets",
-    lines: "Lignes",
+    audiences: "Pour qui",
     context: "Le contexte",
     challenge: "Le défi",
     solution: "Ce que j'ai construit",
@@ -194,7 +236,9 @@ const fr = {
     stack: "Technologies",
     links: "Voir en ligne",
     privateCode: "Le code de ce projet est privé.",
-    next: "Station suivante",
+    next: "Projet suivant",
+    public: "Public",
+    private: "Privé",
   },
   footer: {
     tagline: "Développeur web freelance. Sites, boutiques et applications qui tournent en production.",
@@ -205,8 +249,8 @@ const fr = {
     rights: "Tous droits réservés.",
   },
   notFound: {
-    title: "Cette station n'existe pas",
-    body: "La page demandée n'est pas sur le réseau. Revenez à l'accueil ou écrivez-moi.",
+    title: "Page introuvable",
+    body: "Cette page n'existe pas ou a été déplacée. Revenez à l'accueil ou écrivez-moi.",
     home: "Retour à l'accueil",
   },
 };

@@ -4,23 +4,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold leading-none transition-[background-color,color,box-shadow,transform] duration-200 ease-(--ease-signal) disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-[1.1em] [&_svg]:shrink-0 active:translate-y-px",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-colors duration-150 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-band text-band-ink hover:bg-band-2",
-        signal: "bg-line-3 text-ink hover:bg-[#ffc824]",
-        line1: "bg-line-1 text-white hover:bg-[#bf321c]",
-        line2: "bg-line-2 text-white hover:bg-[#1a4aa7]",
-        outline: "bg-plate text-ink shadow-[inset_0_0_0_2px_var(--ink)] hover:bg-paper",
-        ghost: "text-ink hover:bg-ink/5",
-        onBand: "bg-plate text-ink hover:bg-paper",
+        default: "bg-accent text-accent-fg shadow-sm hover:bg-accent-hover",
+        secondary: "border border-border bg-bg text-fg shadow-sm hover:bg-bg-muted",
+        ghost: "text-fg-muted hover:bg-bg-muted hover:text-fg",
+        outline: "border border-border-strong bg-transparent text-fg hover:bg-bg-muted",
       },
       size: {
-        default: "h-11 px-5 text-[0.98rem]",
-        sm: "h-9 px-4 text-sm",
-        lg: "h-14 px-7 text-lg",
-        icon: "size-11",
+        default: "h-10 px-4 text-sm",
+        sm: "h-9 px-3 text-sm",
+        lg: "h-11 px-5 text-base",
+        icon: "size-9",
       },
     },
     defaultVariants: { variant: "default", size: "default" },

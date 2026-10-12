@@ -1,5 +1,5 @@
 import type { Locale } from "@/i18n/config";
-import type { LineId } from "./lines";
+import type { AudienceId } from "./audiences";
 
 type T = Record<Locale, string>;
 
@@ -13,9 +13,10 @@ export type ProjectImage = {
 export type Project = {
   slug: string;
   name: string;
-  /** Short station code shown on plates. */
-  code: string;
-  lines: LineId[];
+  audiences: AudienceId[];
+  /** Main language, shown GitHub-style with a coloured dot. */
+  language: "TypeScript" | "JavaScript";
+  visibility: "public" | "private";
   tagline: T;
   /** The only figure allowed on the site for this project, if any. */
   figure?: T;
@@ -34,8 +35,9 @@ export const projects: Project[] = [
   {
     slug: "welcomeapp",
     name: "WelcomeApp",
-    code: "WA",
-    lines: ["clients", "agencies", "audit"],
+    audiences: ["clients", "agencies", "audit"],
+    language: "TypeScript",
+    visibility: "private",
     tagline: {
       fr: "Le SaaS de livrets d'accueil numériques pour les locations de vacances, paiements compris.",
       en: "A SaaS for digital welcome books in holiday rentals, payments included.",
@@ -94,8 +96,9 @@ export const projects: Project[] = [
   {
     slug: "dandyshoes",
     name: "Dandyshoes",
-    code: "DS",
-    lines: ["clients", "agencies", "audit"],
+    audiences: ["clients", "agencies", "audit"],
+    language: "TypeScript",
+    visibility: "public",
     tagline: {
       fr: "Le site officiel d'un groupe de rock de Charleroi et sa boutique de merch en ligne.",
       en: "The official website of a rock band from Charleroi, and its online merch shop.",
@@ -159,8 +162,9 @@ export const projects: Project[] = [
   {
     slug: "camping-du-wignet",
     name: "Camping du Wignet",
-    code: "CW",
-    lines: ["clients"],
+    audiences: ["clients"],
+    language: "JavaScript",
+    visibility: "public",
     tagline: {
       fr: "Un terrain de camping privatif dans les Ardennes, réservable en ligne en quatre langues.",
       en: "A private campsite in the Belgian Ardennes, bookable online in four languages.",
@@ -214,8 +218,9 @@ export const projects: Project[] = [
   {
     slug: "gestionnaire-de-championnats",
     name: "Gestionnaire de championnats",
-    code: "GC",
-    lines: ["clients", "agencies"],
+    audiences: ["clients", "agencies"],
+    language: "JavaScript",
+    visibility: "public",
     tagline: {
       fr: "L'outil qui fait tourner des championnats multisport, du tennis de table à la natation adaptée.",
       en: "The tool that runs multisport championships, from table tennis to adapted swimming.",
