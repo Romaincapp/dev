@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T00:00:00Z",
+  "title": "Design System: Romain / Dev",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Emerald (light)"
+      },
+      "dark-accent": {
+        "role": "primary",
+        "displayName": "Emerald (dark)"
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Canvas"
+      },
+      "bg-subtle": {
+        "role": "neutral",
+        "displayName": "Canvas subtle"
+      },
+      "code-bg": {
+        "role": "neutral",
+        "displayName": "Code window"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "h1 only."
+      },
+      "code": {
+        "displayName": "Mono",
+        "purpose": "Code, terminal, stack tags, step numbers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel",
+        "value": "0 1px 2px rgb(31 35 40 / .06), 0 8px 24px -12px rgb(31 35 40 / .18)",
+        "purpose": "Bordered panels and windows."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Terminal lines appearing in sequence."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Emerald action, used for every get-in-touch CTA.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Me contacter →</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:6px;background:#0a7d55;color:#fff;font:500 .875rem 'Geist',sans-serif;text-decoration:none}.ds-btn:hover{background:#087049}.ds-btn:focus-visible{outline:2px solid #0a7d55;outline-offset:2px}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Bordered neutral action.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">Voir les projets</a>",
+      "css": ".ds-btn2{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:6px;border:1px solid #d1d9e0;background:#fff;color:#1f2328;font:500 .875rem 'Geist',sans-serif;text-decoration:none}.ds-btn2:hover{background:#eff2f5}"
+    },
+    {
+      "name": "Code window",
+      "kind": "custom",
+      "refersTo": "code-window",
+      "description": "Dark window with traffic lights for terminals and snippets.",
+      "html": "<div class=\"ds-win\"><div class=\"ds-bar\"><i></i><i></i><i></i><span>fix.sql</span></div><pre>alter table orders enable row level security;</pre></div>",
+      "css": ".ds-win{border-radius:12px;overflow:hidden;background:#0b0d10;color:#e6edf3;border:1px solid rgb(255 255 255/.1)}.ds-bar{display:flex;gap:6px;align-items:center;height:40px;padding:0 16px;border-bottom:1px solid rgb(255 255 255/.1)}.ds-bar i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.ds-bar i:nth-child(2){background:#febc2e}.ds-bar i:nth-child(3){background:#28c840}.ds-bar span{margin:auto;font:12px 'Geist Mono',monospace;color:#8b949e}.ds-win pre{margin:0;padding:20px;font:.8rem/1.6 'Geist Mono',monospace}"
+    },
+    {
+      "name": "Text field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Form field with emerald focus ring.",
+      "html": "<input class=\"ds-input\" placeholder=\"Votre nom\">",
+      "css": ".ds-input{height:40px;padding:0 12px;border:1px solid #d1d9e0;border-radius:6px;background:#fff;color:#1f2328;font:.875rem 'Geist',sans-serif}.ds-input:focus-visible{outline:none;border-color:#0a7d55;box-shadow:0 0 0 3px rgb(10 125 85/.2)}"
+    },
+    {
+      "name": "Repo badge",
+      "kind": "chip",
+      "description": "GitHub-style visibility badge.",
+      "html": "<span class=\"ds-badge\">Public</span>",
+      "css": ".ds-badge{display:inline-flex;padding:2px 8px;border:1px solid #d1d9e0;border-radius:9999px;font:500 12px 'Geist',sans-serif;color:#59636e}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A portfolio that reads like a reliable dev tool",
+    "overview": "The GitHub / Supabase / Stripe canon, light and dark, with the expertise shown in developer vocabulary: terminal output, code windows, repository metadata.",
+    "keyCharacteristics": [
+      "Neutral grounds and hairline borders",
+      "One emerald accent",
+      "Geist Sans and Geist Mono",
+      "Terminal hero and audience tabs"
+    ],
+    "rules": [
+      {
+        "name": "One accent",
+        "body": "Emerald only, for actions and success.",
+        "section": "colors"
+      },
+      {
+        "name": "No eyebrows",
+        "body": "Headings stand alone; mono only for code and data.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Show expertise in developer vocabulary",
+      "End every page on the contact form"
+    ],
+    "donts": [
+      "Display the e-mail address",
+      "Add vanity stats or gradient text"
+    ]
+  }
+}
