@@ -206,12 +206,12 @@ export const projects: Project[] = [
       { label: { fr: "Code source", en: "Source code" }, url: "https://github.com/Romaincapp/camping" },
     ],
     image: {
-      src: "/projects/camping/terrain.webp",
-      width: 1600,
-      height: 924,
+      src: "/projects/camping/accueil.webp",
+      width: 1512,
+      height: 829,
       alt: {
-        fr: "Le terrain du Wignet : tente en lisière de forêt",
-        en: "The Wignet campsite: a tent at the edge of the forest",
+        fr: "Page d'accueil du Camping du Wignet : le terrain en lisière de forêt et le bouton « Réserver maintenant »",
+        en: "Camping du Wignet home page: the field at the edge of the forest and the \"Book now\" button",
       },
     },
   },
