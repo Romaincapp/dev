@@ -84,12 +84,12 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Stripe Connect", "Resend", "OpenAI", "Vitest"],
     links: [{ label: { fr: "welcomeapp.be", en: "welcomeapp.be" }, url: "https://welcomeapp.be" }],
     image: {
-      src: "/projects/welcomeapp/livret.webp",
-      width: 720,
-      height: 1560,
+      src: "/projects/welcomeapp/accueil.webp",
+      width: 1151,
+      height: 810,
       alt: {
-        fr: "Livret d'accueil WelcomeApp sur mobile : bonnes adresses et carte interactive",
-        en: "WelcomeApp welcome book on a phone: local spots and an interactive map",
+        fr: "Page d'accueil de WelcomeApp : livret d'accueil digital et réservation directe, avec un livret ouvert sur mobile",
+        en: "WelcomeApp home page: digital welcome book and direct booking, with a welcome book open on a phone",
       },
     },
   },
