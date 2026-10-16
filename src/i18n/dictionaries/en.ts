@@ -224,11 +224,11 @@ const en: Dictionary = {
       },
       {
         title: "Built step by step",
-        body: "You watch the product take shape on a demo address and approve each step.",
+        body: "You watch the product take shape on a demo address and approve each step. The documentation moves with the code, not after it.",
       },
       {
-        title: "Launch and follow-up",
-        body: "I put it in production, train you if needed and stay reachable when it needs to evolve.",
+        title: "Launch, docs and follow-up",
+        body: "I put it in production with up-to-date documentation: you stay in control of your project, with or without me. And I stay reachable when it needs to evolve.",
       },
     ],
   },
@@ -286,7 +286,7 @@ const en: Dictionary = {
     work: [
       { title: "Your conventions first", body: "I read your code before writing mine, and follow your style, tools and structure." },
       { title: "Branches and pull requests", body: "Short, reviewable PRs with a clear description of what changes and why." },
-      { title: "Tests and documentation", body: "I cover what I touch and leave a written trail of decisions for whoever comes next." },
+      { title: "Documentation comes first", body: "I keep the docs up to date with every PR: README, architecture decisions, deployment steps. I also cover what I touch with tests. Whoever comes next finds their way around." },
       { title: "AI agents, with method", body: "I use AI agents every day, with written rules and reviews. The speed gain does not cost quality." },
     ],
     termsTitle: "Terms",

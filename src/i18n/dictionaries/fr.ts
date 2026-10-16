@@ -223,11 +223,11 @@ const fr = {
       },
       {
         title: "Construction par étapes",
-        body: "Vous voyez le produit avancer sur une adresse de démo et vous validez à chaque étape.",
+        body: "Vous voyez le produit avancer sur une adresse de démo et vous validez à chaque étape. La documentation avance avec le code, pas après.",
       },
       {
-        title: "Mise en ligne et suivi",
-        body: "Je mets en production, je vous forme si besoin et je reste joignable quand il faut faire évoluer.",
+        title: "Mise en ligne, doc et suivi",
+        body: "Je mets en production avec une documentation à jour : vous gardez la main sur votre projet, avec ou sans moi. Et je reste joignable pour le faire évoluer.",
       },
     ],
   },
@@ -285,7 +285,7 @@ const fr = {
     work: [
       { title: "Vos conventions d'abord", body: "Je lis votre code avant d'écrire le mien et je suis votre style, vos outils et votre découpage." },
       { title: "Branches et pull requests", body: "Des PR courtes et relisibles, avec une description claire de ce qui change et pourquoi." },
-      { title: "Tests et documentation", body: "Je couvre ce que je touche et je laisse une trace écrite des décisions, pour la personne qui passe après moi." },
+      { title: "La documentation en priorité", body: "Je tiens la doc à jour à chaque PR : README, décisions d'architecture, procédures de déploiement. Je couvre aussi ce que je touche par des tests. La personne qui passe après moi s'y retrouve." },
       { title: "Agents IA, avec méthode", body: "J'utilise des agents IA au quotidien, avec des règles écrites et des relectures. Le gain de vitesse ne coûte pas la qualité." },
     ],
     termsTitle: "Modalités",
