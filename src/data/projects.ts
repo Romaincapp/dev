@@ -73,15 +73,15 @@ export const projects: Project[] = [
         en: "Stripe Connect: sales go straight to the host's account and the platform commission is taken automatically.",
       },
       {
-        fr: "Supabase (Postgres, Auth, Storage) avec des règles d'accès par ligne, e-mails transactionnels via Resend, tests Vitest.",
-        en: "Supabase (Postgres, Auth, Storage) with row-level access rules, transactional e-mails through Resend, Vitest tests.",
+        fr: "PostgreSQL via Supabase (Auth, Storage), règles d'accès par ligne (RLS) et migrations SQL, e-mails transactionnels via Resend, tests Vitest.",
+        en: "PostgreSQL via Supabase (Auth, Storage), row-level security (RLS) and SQL migrations, transactional e-mails through Resend, Vitest tests.",
       },
     ],
     result: {
       fr: "Un SaaS en production que je conçois, développe et fais tourner seul, avec environ 70 logements en abonnement premium.",
       en: "A SaaS in production that I design, build and run on my own, with about 70 rentals on the premium plan.",
     },
-    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "Stripe Connect", "Resend", "OpenAI", "Vitest"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL (Supabase)", "Stripe Connect", "Resend", "OpenAI", "Vitest"],
     links: [{ label: { fr: "welcomeapp.be", en: "welcomeapp.be" }, url: "https://welcomeapp.be" }],
     image: {
       src: "/projects/welcomeapp/accueil.webp",
@@ -122,8 +122,8 @@ export const projects: Project[] = [
         en: "A fast showcase site: audio player, gallery, tour dates, booking form, optimised images.",
       },
       {
-        fr: "Boutique Next.js + Supabase : Stripe Checkout, webhooks (commande, remboursement, litige), codes promo, liste d'attente avec lien de paiement en un clic.",
-        en: "A Next.js + Supabase shop: Stripe Checkout, webhooks (order, refund, dispute), discount codes, a waitlist with one-click payment links.",
+        fr: "Boutique Next.js + PostgreSQL (Supabase) : Stripe Checkout, webhooks (commande, remboursement, litige), codes promo, liste d'attente avec lien de paiement en un clic.",
+        en: "A Next.js + PostgreSQL (Supabase) shop: Stripe Checkout, webhooks (order, refund, dispute), discount codes, a waitlist with one-click payment links.",
       },
       {
         fr: "Tableau de bord admin : chiffre d'affaires, commandes, stock par variante, clients, suivi d'expédition et e-mails automatiques à chaque étape.",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
       fr: "Le groupe vend son merch en autonomie, et le site porte son image auprès des programmateurs comme du public.",
       en: "The band sells its merch on its own, and the site carries its image with promoters and fans alike.",
     },
-    stack: ["Next.js 16", "Tailwind CSS 4", "Supabase", "Stripe Checkout", "Webhooks", "Zustand", "HTML/CSS/JS"],
+    stack: ["Next.js 16", "Tailwind CSS 4", "PostgreSQL (Supabase)", "Stripe Checkout", "Webhooks", "Zustand", "HTML/CSS/JS"],
     links: [
       { label: { fr: "dandyshoes.be", en: "dandyshoes.be" }, url: "https://dandyshoes.be" },
       { label: { fr: "La boutique", en: "The shop" }, url: "https://shop-liart-eight-13.vercel.app" },

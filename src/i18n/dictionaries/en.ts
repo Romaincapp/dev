@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: "Romain / Dev · Freelance web developer in Charleroi, Belgium",
     description:
-      "Websites, online shops and web apps that run in production: Stripe payments, Supabase, multilingual. Free audit and quote, by video call or on site in Belgium.",
+      "Websites, online shops and web apps that run in production: Stripe payments, PostgreSQL databases, multilingual. Free audit and quote, by video call or on site in Belgium.",
   },
   brand: {
     name: "Romain / Dev",
@@ -182,7 +182,7 @@ const en: Dictionary = {
       },
       agencies: {
         title: "You run an agency or a dev team",
-        body: "A reliable extra pair of hands on Next.js, Supabase and Stripe, working inside your repo and your conventions.",
+        body: "A reliable extra pair of hands on Next.js, PostgreSQL and Stripe, working inside your repo and your conventions.",
         points: ["Day rate or fixed price", "White label and NDA", "French and English"],
         cta: "See the agency offer",
         snippet: {
@@ -270,15 +270,15 @@ const en: Dictionary = {
     },
   },
   agencies: {
-    metaTitle: "Next.js, Supabase and Stripe reinforcement for agencies",
+    metaTitle: "Next.js, PostgreSQL and Stripe reinforcement for agencies",
     metaDescription:
-      "Freelance developer for agencies and teams: Next.js, React, TypeScript, Supabase, Stripe. Day rate or fixed price, white label, NDA. Charleroi, Belgium / remote.",
-    title: "Next.js, Supabase and Stripe reinforcement that ships in your repo.",
+      "Freelance developer for agencies and teams: Next.js, React, TypeScript, PostgreSQL (Supabase), Stripe. Day rate or fixed price, white label, NDA. Charleroi, Belgium / remote.",
+    title: "Next.js, PostgreSQL and Stripe reinforcement that ships in your repo.",
     lead: "A project running late, a payment feature to plug in, or a team that needs breathing room. I fit into the way you work and ship code you can review.",
     stackTitle: "What I run in production",
     stack: [
       { title: "Front end", items: ["Next.js (App Router, Server Actions)", "React 19", "TypeScript", "Tailwind CSS", "Multilingual i18n"] },
-      { title: "Data", items: ["Supabase: Postgres, Auth, Storage", "Row-level security (RLS)", "SQL migrations"] },
+      { title: "Data", items: ["PostgreSQL (Supabase): Auth, Storage", "Row-level security (RLS)", "SQL migrations"] },
       { title: "Payments", items: ["Stripe Checkout", "Signed webhooks", "Stripe Connect", "Pre-authorisations and refunds"] },
       { title: "Quality", items: ["Playwright", "Vitest and Jest", "Accessibility", "Vercel deployment"] },
     ],

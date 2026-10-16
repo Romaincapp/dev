@@ -2,7 +2,7 @@ const fr = {
   meta: {
     title: "Romain / Dev · Développeur web freelance à Charleroi",
     description:
-      "Sites, boutiques en ligne et applications web qui tournent en production : paiements Stripe, Supabase, multilingue. Audit et devis gratuits, en visio ou sur place en Belgique.",
+      "Sites, boutiques en ligne et applications web qui tournent en production : paiements Stripe, bases PostgreSQL, multilingue. Audit et devis gratuits, en visio ou sur place en Belgique.",
   },
   brand: {
     name: "Romain / Dev",
@@ -181,7 +181,7 @@ const fr = {
       },
       agencies: {
         title: "Vous êtes une agence ou une équipe de devs",
-        body: "Un renfort fiable sur Next.js, Supabase et Stripe, qui s'insère dans votre repo et vos conventions.",
+        body: "Un renfort fiable sur Next.js, PostgreSQL et Stripe, qui s'insère dans votre repo et vos conventions.",
         points: ["Régie ou forfait", "Marque blanche et NDA", "Français et anglais"],
         cta: "Découvrir l'offre agences",
         snippet: {
@@ -269,15 +269,15 @@ const fr = {
     },
   },
   agencies: {
-    metaTitle: "Renfort Next.js, Supabase et Stripe pour agences",
+    metaTitle: "Renfort Next.js, PostgreSQL et Stripe pour agences",
     metaDescription:
-      "Développeur freelance pour agences et équipes : Next.js, React, TypeScript, Supabase, Stripe. Régie ou forfait, marque blanche, NDA. Charleroi, Belgique / remote.",
-    title: "Un renfort Next.js, Supabase et Stripe qui livre dans votre repo.",
+      "Développeur freelance pour agences et équipes : Next.js, React, TypeScript, PostgreSQL (Supabase), Stripe. Régie ou forfait, marque blanche, NDA. Charleroi, Belgique / remote.",
+    title: "Un renfort Next.js, PostgreSQL et Stripe qui livre dans votre repo.",
     lead: "Vous avez un projet en retard, une fonctionnalité de paiement à brancher ou une équipe à soulager. Je m'intègre à votre façon de travailler et je livre du code que vous pouvez relire.",
     stackTitle: "Ce que je maîtrise en production",
     stack: [
       { title: "Front", items: ["Next.js (App Router, Server Actions)", "React 19", "TypeScript", "Tailwind CSS", "i18n multilingue"] },
-      { title: "Données", items: ["Supabase : Postgres, Auth, Storage", "Règles d'accès par ligne (RLS)", "Migrations SQL"] },
+      { title: "Données", items: ["PostgreSQL (Supabase) : Auth, Storage", "Règles d'accès par ligne (RLS)", "Migrations SQL"] },
       { title: "Paiements", items: ["Stripe Checkout", "Webhooks signés", "Stripe Connect", "Pré-autorisations et remboursements"] },
       { title: "Qualité", items: ["Playwright", "Vitest et Jest", "Accessibilité", "Déploiement Vercel"] },
     ],
