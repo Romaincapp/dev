@@ -32,6 +32,7 @@ const fr = {
     lead: "Développeur web freelance. Applications sur mesure, paiements en ligne, données sécurisées, sites multilingues.",
     seeProjects: "Voir les projets",
     available: "Disponible actuellement pour de nouveaux projets",
+    availableShort: "Disponible actuellement",
     terminal: {
       title: "Exemple d'audit",
       command: "npx romain-dev audit ./mon-app",
