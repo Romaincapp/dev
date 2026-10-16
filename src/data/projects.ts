@@ -265,12 +265,12 @@ export const projects: Project[] = [
       { label: { fr: "Code source", en: "Source code" }, url: "https://github.com/Romaincapp/Gestionnaire-de-championnats" },
     ],
     image: {
-      src: "/projects/gestionnaire-de-championnats/classement.webp",
+      src: "/projects/gestionnaire-de-championnats/classement-sombre.webp",
       width: 1440,
       height: 900,
       alt: {
-        fr: "Gestionnaire de championnats : classement général sur trois journées, avec le nombre de joueurs et de matchs et le tableau de la division 1",
-        en: "Championship manager: general standings over three match days, with player and match counts and the division 1 table",
+        fr: "Gestionnaire de championnats en mode sombre : classement général sur trois journées, avec le nombre de joueurs et de matchs et le tableau de la division 1",
+        en: "Championship manager in dark mode: general standings over three match days, with player and match counts and the division 1 table",
       },
     },
   },
