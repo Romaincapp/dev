@@ -30,10 +30,10 @@ const en: Dictionary = {
     similar: "A similar project? Let's talk",
   },
   home: {
-    title: "Web apps that run smoothly in production.",
-    lead: "I design, build and fix websites and apps that take real payments, handle real data and speak several languages.",
+    title: "From idea to launch.",
+    lead: "Freelance web developer, I help startups and small businesses through the whole cycle: design, development, deployment. Payments, data, multiple languages — everything is built to hold up in production.",
     seeProjects: "See projects",
-    available: "Available for new projects",
+    available: "Currently available for new projects",
     terminal: {
       title: "Example audit",
       command: "npx romain-dev audit ./my-app",
