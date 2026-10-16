@@ -31,7 +31,7 @@ const en: Dictionary = {
   },
   home: {
     title: "From idea to launch.",
-    lead: "Freelance web developer. Custom apps, online payments, secure data, multilingual sites.",
+    lead: "Freelance full-stack developer. Custom apps, online payments, secure data, multilingual sites.",
     seeProjects: "See projects",
     available: "Currently available for new projects",
     availableShort: "Currently available",

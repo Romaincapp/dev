@@ -29,7 +29,7 @@ const fr = {
   },
   home: {
     title: "De l'idée à la mise en ligne.",
-    lead: "Développeur web freelance. Applications sur mesure, paiements en ligne, données sécurisées, sites multilingues.",
+    lead: "Développeur full-stack freelance. Applications sur mesure, paiements en ligne, données sécurisées, sites multilingues.",
     seeProjects: "Voir les projets",
     available: "Disponible actuellement pour de nouveaux projets",
     availableShort: "Disponible actuellement",
