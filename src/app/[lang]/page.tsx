@@ -48,13 +48,6 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <div aria-hidden className="hero-grid absolute inset-0" />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pt-16 pb-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-14 lg:pt-24 lg:pb-28">
           <div className="flex flex-col gap-6">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-bg/80 px-3 py-1 text-xs font-medium text-fg-muted backdrop-blur">
-              <span aria-hidden className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:hidden" />
-                <span className="relative inline-flex size-2 rounded-full bg-accent" />
-              </span>
-              {dict.home.available}
-            </span>
             <h1 id="hero-title" className="text-[2.5rem] font-semibold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-[4.1rem]">
               {dict.home.title}
             </h1>

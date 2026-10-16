@@ -29,7 +29,7 @@ const fr = {
   },
   home: {
     title: "De l'idée à la mise en ligne.",
-    lead: "Développeur web freelance, j'accompagne startups et PME sur tout le cycle : conception, développement, déploiement. Paiements, données, multilingue : tout est pensé pour tenir en production.",
+    lead: "Développeur web freelance. Applications sur mesure, paiements en ligne, données sécurisées, sites multilingues.",
     seeProjects: "Voir les projets",
     available: "Disponible actuellement pour de nouveaux projets",
     terminal: {
