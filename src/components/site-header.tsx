@@ -23,6 +23,7 @@ type HeaderCopy = {
     theme: string;
   };
   links: { agencies: string; audit: string };
+  available: string;
 };
 
 export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
@@ -55,6 +56,10 @@ export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <span className="mr-2 hidden items-center gap-2 text-xs text-fg-muted lg:inline-flex">
+            <span aria-hidden className="size-2 rounded-full bg-accent ring-2 ring-accent-soft" />
+            {copy.available}
+          </span>
           <Link
             href={alternatePath(pathname, other)}
             hrefLang={other}
