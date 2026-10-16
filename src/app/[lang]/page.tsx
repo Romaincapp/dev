@@ -63,13 +63,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 <a href="#projects">{dict.home.seeProjects}</a>
               </Button>
             </div>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-fg-muted">
-              <span className="inline-flex items-center gap-2">
-                <span aria-hidden className="size-2.5 rounded-full bg-accent ring-4 ring-accent-soft" />
-                {dict.home.available}
-              </span>
-              <span>{dict.brand.location}</span>
-            </div>
+            <p className="text-sm text-fg-muted">{dict.brand.location}</p>
           </div>
           <Terminal copy={dict.home.terminal} />
         </div>

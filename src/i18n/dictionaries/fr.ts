@@ -28,10 +28,10 @@ const fr = {
     similar: "Un projet similaire ? Parlons-en",
   },
   home: {
-    title: "Des applis web qui roulent en production.",
-    lead: "Je conçois, je construis et je remets d'aplomb des sites et des applications qui encaissent de vrais paiements, gèrent de vraies données et parlent plusieurs langues.",
+    title: "De l'idée à la mise en ligne.",
+    lead: "Développeur web freelance. Applications sur mesure, paiements en ligne, données sécurisées, sites multilingues.",
     seeProjects: "Voir les projets",
-    available: "Disponible pour de nouveaux projets",
+    available: "Disponible actuellement pour de nouveaux projets",
     terminal: {
       title: "Exemple d'audit",
       command: "npx romain-dev audit ./mon-app",
