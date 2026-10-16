@@ -34,6 +34,7 @@ const en: Dictionary = {
     lead: "Freelance web developer. Custom apps, online payments, secure data, multilingual sites.",
     seeProjects: "See projects",
     available: "Currently available for new projects",
+    availableShort: "Currently available",
     terminal: {
       title: "Example audit",
       command: "npx romain-dev audit ./my-app",

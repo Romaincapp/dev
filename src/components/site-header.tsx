@@ -23,7 +23,7 @@ type HeaderCopy = {
     theme: string;
   };
   links: { agencies: string; audit: string };
-  available: string;
+  available: { full: string; short: string };
 };
 
 export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
@@ -56,10 +56,15 @@ export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <span className="mr-2 hidden items-center gap-2 text-xs text-fg-muted lg:inline-flex">
-            <span aria-hidden className="size-2 rounded-full bg-accent ring-2 ring-accent-soft" />
-            {copy.available}
-          </span>
+          <TrackedLink
+            href={contactHref}
+            location="header-availability"
+            className="inline-flex h-9 items-center gap-2 rounded-md px-2 text-xs whitespace-nowrap text-fg-muted transition-colors hover:text-fg lg:mr-2"
+          >
+            <span aria-hidden className="size-2 shrink-0 rounded-full bg-accent ring-2 ring-accent-soft" />
+            <span className="leading-tight max-[359px]:w-[11ch] max-[359px]:whitespace-normal lg:hidden">{copy.available.short}</span>
+            <span className="hidden lg:inline">{copy.available.full}</span>
+          </TrackedLink>
           <Link
             href={alternatePath(pathname, other)}
             hrefLang={other}
@@ -72,7 +77,7 @@ export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
           <span className="hidden md:inline-flex">
             <ThemeToggle label={copy.nav.theme} />
           </span>
-          <Button asChild size="sm">
+          <Button asChild size="sm" className="hidden sm:inline-flex">
             <TrackedLink href={contactHref} location="header">
               {copy.nav.contact}
               <ArrowRight aria-hidden />

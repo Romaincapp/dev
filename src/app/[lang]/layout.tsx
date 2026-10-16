@@ -67,7 +67,7 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
           copy={{
             brand: dict.brand,
             nav: dict.nav,
-            available: dict.home.available,
+            available: { full: dict.home.available, short: dict.home.availableShort },
             links: { agencies: audiences[1].name[lang], audit: audiences[2].name[lang] },
           }}
         />
