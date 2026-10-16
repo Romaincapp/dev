@@ -7,6 +7,7 @@ const pages = {
 };
 const allPages = [...pages.fr, ...pages.en];
 const ctaLabel = { fr: "Me contacter", en: "Get in touch" } as const;
+const availableLabel = { fr: "Disponible actuellement", en: "Currently available" } as const;
 
 test("root redirects to a locale", async ({ page }) => {
   await page.goto("/");
@@ -29,10 +30,13 @@ for (const path of allPages) {
 }
 
 for (const lang of ["fr", "en"] as const) {
-  test(`${lang} home shows the four projects and a visible contact CTA`, async ({ page }) => {
+  test(`${lang} home shows the four projects and a visible contact CTA`, async ({ page, isMobile }) => {
     await page.goto(`/${lang}`);
     await expect(page.locator("#projects article")).toHaveCount(4);
-    const cta = page.getByRole("banner").getByRole("link", { name: ctaLabel[lang] });
+    // On phones the header button gives way to the clickable "available" line, which also leads to contact.
+    const cta = page
+      .getByRole("banner")
+      .getByRole("link", { name: isMobile ? availableLabel[lang] : ctaLabel[lang] });
     await expect(cta).toBeInViewport();
     await cta.click();
     await expect(page).toHaveURL(new RegExp(`/${lang}/contact$`));

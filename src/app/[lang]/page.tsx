@@ -13,6 +13,7 @@ import { ProjectShowcase } from "@/components/project-showcase";
 import { SectionHeader } from "@/components/page-hero";
 import { Steps } from "@/components/steps";
 import { ContactSection } from "@/components/contact-section";
+import { ComponentShowcase } from "@/components/component-showcase";
 import { TrackedLink } from "@/components/tracked-link";
 import { Button } from "@/components/ui/button";
 
@@ -89,6 +90,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           </Button>
         </div>
       </section>
+
+      <ComponentShowcase lang={lang} copy={dict.home.showcase} />
 
       <section aria-labelledby="audiences-title" className="border-y border-border bg-bg-subtle">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">

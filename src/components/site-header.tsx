@@ -59,7 +59,7 @@ export function SiteHeader({ lang, copy }: { lang: Locale; copy: HeaderCopy }) {
           <TrackedLink
             href={contactHref}
             location="header-availability"
-            className="inline-flex h-9 items-center gap-2 rounded-md px-2 text-xs whitespace-nowrap text-fg-muted transition-colors hover:text-fg lg:mr-2"
+            className="inline-flex md:hidden lg:inline-flex h-9 items-center gap-2 rounded-md px-2 text-xs whitespace-nowrap text-fg-muted transition-colors hover:text-fg lg:mr-2"
           >
             <span aria-hidden className="size-2 shrink-0 rounded-full bg-accent ring-2 ring-accent-soft" />
             <span className="leading-tight max-[359px]:w-[11ch] max-[359px]:whitespace-normal lg:hidden">{copy.available.short}</span>
