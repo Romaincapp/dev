@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: "Romain / Dev · Freelance web developer in Charleroi, Belgium",
     description:
-      "Websites, online shops and web apps that run in production: Stripe payments, Supabase, multilingual. Free audit and quote, by video call or on site in Belgium.",
+      "Websites, online shops and web apps that run in production: Stripe payments, PostgreSQL databases, multilingual. Free audit and quote, by video call or on site in Belgium.",
   },
   brand: {
     name: "Romain / Dev",
@@ -182,7 +182,7 @@ const en: Dictionary = {
       },
       agencies: {
         title: "You run an agency or a dev team",
-        body: "A reliable extra pair of hands on Next.js, Supabase and Stripe, working inside your repo and your conventions.",
+        body: "A reliable extra pair of hands on Next.js, PostgreSQL and Stripe, working inside your repo and your conventions.",
         points: ["Day rate or fixed price", "White label and NDA", "French and English"],
         cta: "See the agency offer",
         snippet: {
@@ -224,11 +224,11 @@ const en: Dictionary = {
       },
       {
         title: "Built step by step",
-        body: "You watch the product take shape on a demo address and approve each step.",
+        body: "You watch the product take shape on a demo address and approve each step. The documentation moves with the code, not after it.",
       },
       {
-        title: "Launch and follow-up",
-        body: "I put it in production, train you if needed and stay reachable when it needs to evolve.",
+        title: "Launch, docs and follow-up",
+        body: "I put it in production with up-to-date documentation: you stay in control of your project, with or without me. And I stay reachable when it needs to evolve.",
       },
     ],
   },
@@ -270,15 +270,15 @@ const en: Dictionary = {
     },
   },
   agencies: {
-    metaTitle: "Next.js, Supabase and Stripe reinforcement for agencies",
+    metaTitle: "Next.js, PostgreSQL and Stripe reinforcement for agencies",
     metaDescription:
-      "Freelance developer for agencies and teams: Next.js, React, TypeScript, Supabase, Stripe. Day rate or fixed price, white label, NDA. Charleroi, Belgium / remote.",
-    title: "Next.js, Supabase and Stripe reinforcement that ships in your repo.",
+      "Freelance developer for agencies and teams: Next.js, React, TypeScript, PostgreSQL (Supabase), Stripe. Day rate or fixed price, white label, NDA. Charleroi, Belgium / remote.",
+    title: "Next.js, PostgreSQL and Stripe reinforcement that ships in your repo.",
     lead: "A project running late, a payment feature to plug in, or a team that needs breathing room. I fit into the way you work and ship code you can review.",
     stackTitle: "What I run in production",
     stack: [
       { title: "Front end", items: ["Next.js (App Router, Server Actions)", "React 19", "TypeScript", "Tailwind CSS", "Multilingual i18n"] },
-      { title: "Data", items: ["Supabase: Postgres, Auth, Storage", "Row-level security (RLS)", "SQL migrations"] },
+      { title: "Data", items: ["PostgreSQL (Supabase): Auth, Storage", "Row-level security (RLS)", "SQL migrations"] },
       { title: "Payments", items: ["Stripe Checkout", "Signed webhooks", "Stripe Connect", "Pre-authorisations and refunds"] },
       { title: "Quality", items: ["Playwright", "Vitest and Jest", "Accessibility", "Vercel deployment"] },
     ],
@@ -286,7 +286,7 @@ const en: Dictionary = {
     work: [
       { title: "Your conventions first", body: "I read your code before writing mine, and follow your style, tools and structure." },
       { title: "Branches and pull requests", body: "Short, reviewable PRs with a clear description of what changes and why." },
-      { title: "Tests and documentation", body: "I cover what I touch and leave a written trail of decisions for whoever comes next." },
+      { title: "Documentation comes first", body: "I keep the docs up to date with every PR: README, architecture decisions, deployment steps. I also cover what I touch with tests. Whoever comes next finds their way around." },
       { title: "AI agents, with method", body: "I use AI agents every day, with written rules and reviews. The speed gain does not cost quality." },
     ],
     termsTitle: "Terms",

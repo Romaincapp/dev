@@ -2,7 +2,7 @@ const fr = {
   meta: {
     title: "Romain / Dev · Développeur web freelance à Charleroi",
     description:
-      "Sites, boutiques en ligne et applications web qui tournent en production : paiements Stripe, Supabase, multilingue. Audit et devis gratuits, en visio ou sur place en Belgique.",
+      "Sites, boutiques en ligne et applications web qui tournent en production : paiements Stripe, bases PostgreSQL, multilingue. Audit et devis gratuits, en visio ou sur place en Belgique.",
   },
   brand: {
     name: "Romain / Dev",
@@ -181,7 +181,7 @@ const fr = {
       },
       agencies: {
         title: "Vous êtes une agence ou une équipe de devs",
-        body: "Un renfort fiable sur Next.js, Supabase et Stripe, qui s'insère dans votre repo et vos conventions.",
+        body: "Un renfort fiable sur Next.js, PostgreSQL et Stripe, qui s'insère dans votre repo et vos conventions.",
         points: ["Régie ou forfait", "Marque blanche et NDA", "Français et anglais"],
         cta: "Découvrir l'offre agences",
         snippet: {
@@ -223,11 +223,11 @@ const fr = {
       },
       {
         title: "Construction par étapes",
-        body: "Vous voyez le produit avancer sur une adresse de démo et vous validez à chaque étape.",
+        body: "Vous voyez le produit avancer sur une adresse de démo et vous validez à chaque étape. La documentation avance avec le code, pas après.",
       },
       {
-        title: "Mise en ligne et suivi",
-        body: "Je mets en production, je vous forme si besoin et je reste joignable quand il faut faire évoluer.",
+        title: "Mise en ligne, doc et suivi",
+        body: "Je mets en production avec une documentation à jour : vous gardez la main sur votre projet, avec ou sans moi. Et je reste joignable pour le faire évoluer.",
       },
     ],
   },
@@ -269,15 +269,15 @@ const fr = {
     },
   },
   agencies: {
-    metaTitle: "Renfort Next.js, Supabase et Stripe pour agences",
+    metaTitle: "Renfort Next.js, PostgreSQL et Stripe pour agences",
     metaDescription:
-      "Développeur freelance pour agences et équipes : Next.js, React, TypeScript, Supabase, Stripe. Régie ou forfait, marque blanche, NDA. Charleroi, Belgique / remote.",
-    title: "Un renfort Next.js, Supabase et Stripe qui livre dans votre repo.",
+      "Développeur freelance pour agences et équipes : Next.js, React, TypeScript, PostgreSQL (Supabase), Stripe. Régie ou forfait, marque blanche, NDA. Charleroi, Belgique / remote.",
+    title: "Un renfort Next.js, PostgreSQL et Stripe qui livre dans votre repo.",
     lead: "Vous avez un projet en retard, une fonctionnalité de paiement à brancher ou une équipe à soulager. Je m'intègre à votre façon de travailler et je livre du code que vous pouvez relire.",
     stackTitle: "Ce que je maîtrise en production",
     stack: [
       { title: "Front", items: ["Next.js (App Router, Server Actions)", "React 19", "TypeScript", "Tailwind CSS", "i18n multilingue"] },
-      { title: "Données", items: ["Supabase : Postgres, Auth, Storage", "Règles d'accès par ligne (RLS)", "Migrations SQL"] },
+      { title: "Données", items: ["PostgreSQL (Supabase) : Auth, Storage", "Règles d'accès par ligne (RLS)", "Migrations SQL"] },
       { title: "Paiements", items: ["Stripe Checkout", "Webhooks signés", "Stripe Connect", "Pré-autorisations et remboursements"] },
       { title: "Qualité", items: ["Playwright", "Vitest et Jest", "Accessibilité", "Déploiement Vercel"] },
     ],
@@ -285,7 +285,7 @@ const fr = {
     work: [
       { title: "Vos conventions d'abord", body: "Je lis votre code avant d'écrire le mien et je suis votre style, vos outils et votre découpage." },
       { title: "Branches et pull requests", body: "Des PR courtes et relisibles, avec une description claire de ce qui change et pourquoi." },
-      { title: "Tests et documentation", body: "Je couvre ce que je touche et je laisse une trace écrite des décisions, pour la personne qui passe après moi." },
+      { title: "La documentation en priorité", body: "Je tiens la doc à jour à chaque PR : README, décisions d'architecture, procédures de déploiement. Je couvre aussi ce que je touche par des tests. La personne qui passe après moi s'y retrouve." },
       { title: "Agents IA, avec méthode", body: "J'utilise des agents IA au quotidien, avec des règles écrites et des relectures. Le gain de vitesse ne coûte pas la qualité." },
     ],
     termsTitle: "Modalités",
