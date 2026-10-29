@@ -345,6 +345,7 @@ const en: Dictionary = {
     challenge: "The challenge",
     solution: "What I built",
     result: "The result",
+    gallery: "Gallery",
     stack: "Technologies",
     links: "See it live",
     privateCode: "This project's code is private.",

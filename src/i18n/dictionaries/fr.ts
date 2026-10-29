@@ -344,6 +344,7 @@ const fr = {
     challenge: "Le défi",
     solution: "Ce que j'ai construit",
     result: "Le résultat",
+    gallery: "Galerie",
     stack: "Technologies",
     links: "Voir en ligne",
     privateCode: "Le code de ce projet est privé.",

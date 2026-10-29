@@ -29,6 +29,8 @@ export type Project = {
   links: { label: T; url: string }[];
   image?: ProjectImage;
   secondaryImage?: ProjectImage;
+  /** Extra screenshots shown as a gallery on the project page. */
+  gallery?: ProjectImage[];
 };
 
 export const projects: Project[] = [
@@ -269,10 +271,39 @@ export const projects: Project[] = [
       width: 1440,
       height: 900,
       alt: {
-        fr: "Gestionnaire de championnats en mode sombre : classement général sur trois journées, avec le nombre de joueurs et de matchs et le tableau de la division 1",
-        en: "Championship manager in dark mode: general standings over three match days, with player and match counts and the division 1 table",
+        fr: "Gestionnaire de championnats en mode sombre : classement général sur trois journées et 50 matchs, avec les actions de mise à jour et d'export et le tableau de la division 1",
+        en: "Championship manager in dark mode: general standings over three match days and 50 matches, with update and export actions and the division 1 table",
       },
     },
+    gallery: [
+      {
+        src: "/projects/gestionnaire-de-championnats/poules-sombre.webp",
+        width: 1440,
+        height: 900,
+        alt: {
+          fr: "Mode Poules : configuration des poules de qualification, nombre de qualifiés et phase finale en quarts, demies et finale",
+          en: "Pools mode: qualification pool setup, number of qualifiers and a final phase of quarters, semis and final",
+        },
+      },
+      {
+        src: "/projects/gestionnaire-de-championnats/courses-sombre.webp",
+        width: 1440,
+        height: 900,
+        alt: {
+          fr: "Mode Courses : gestion d'une journée de natation, avec la liste des 149 participants et leurs clubs",
+          en: "Races mode: a swimming day, with the list of 149 participants and their clubs",
+        },
+      },
+      {
+        src: "/projects/gestionnaire-de-championnats/series-sombre.webp",
+        width: 1440,
+        height: 900,
+        alt: {
+          fr: "Épreuves de natation découpées en séries, avec le nombre de résultats saisis, dont un forfait et une disqualification",
+          en: "Swimming events split into heats, with the number of results entered, including a no-show and a disqualification",
+        },
+      },
+    ],
   },
 ];
 
