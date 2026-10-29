@@ -128,6 +128,31 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
           </aside>
         </div>
 
+        {project.gallery?.length ? (
+          <section aria-labelledby="gallery" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+            <h2 id="gallery" className="text-2xl font-semibold">{copy.gallery}</h2>
+            <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {project.gallery.map((image) => (
+                <li key={image.src}>
+                  <figure className="flex flex-col gap-3">
+                    <a href={image.src} className="block overflow-hidden rounded-xl border border-border hover:border-border-strong">
+                      <Image
+                        src={image.src}
+                        alt={image.alt[lang]}
+                        width={image.width}
+                        height={image.height}
+                        sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+                        className="h-auto w-full"
+                      />
+                    </a>
+                    <figcaption className="text-sm text-fg-muted">{image.alt[lang]}</figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         <nav aria-label={copy.next} className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
           <Link
             href={href(lang, "projects", next.slug)}
