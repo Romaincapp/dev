@@ -160,6 +160,35 @@ export const projects: Project[] = [
         en: "Dandyshoes t-shirt sold on the online shop",
       },
     },
+    gallery: [
+      {
+        src: "/projects/dandyshoes/concerts.webp",
+        width: 1440,
+        height: 734,
+        alt: {
+          fr: "Dates de concert à venir, avec liens vers la carte et l'agenda, et les dates passées repliées",
+          en: "Upcoming gig dates, with map and calendar links, and past dates folded away",
+        },
+      },
+      {
+        src: "/projects/dandyshoes/galerie-photo.webp",
+        width: 1440,
+        height: 900,
+        alt: {
+          fr: "Galerie photo du groupe : les musiciens en répétition dans un entrepôt",
+          en: "Band photo gallery: the musicians rehearsing in a warehouse",
+        },
+      },
+      {
+        src: "/projects/dandyshoes/videos.webp",
+        width: 1440,
+        height: 800,
+        alt: {
+          fr: "Page vidéos : le clip « Thunder » mis en avant, avec les boutons Lecture et Plus d'infos",
+          en: "Videos page: the \"Thunder\" music video featured, with Play and More info buttons",
+        },
+      },
+    ],
   },
   {
     slug: "camping-du-wignet",
@@ -216,6 +245,44 @@ export const projects: Project[] = [
         en: "Camping du Wignet home page: the field at the edge of the forest and the \"Book now\" button",
       },
     },
+    gallery: [
+      {
+        src: "/projects/camping/reservation.webp",
+        width: 1440,
+        height: 900,
+        alt: {
+          fr: "Réservation : calendrier des disponibilités avec les nuits déjà occupées en rouge, à côté du formulaire de demande",
+          en: "Booking: availability calendar with nights already taken in red, next to the request form",
+        },
+      },
+      {
+        src: "/projects/camping/tarifs.webp",
+        width: 1440,
+        height: 568,
+        alt: {
+          fr: "Offres du camping : réduction long séjour, tarifs de groupe et basse saison jusqu'à -40 %",
+          en: "Campsite offers: long-stay discount, group rates and low season up to -40%",
+        },
+      },
+      {
+        src: "/projects/camping/terrain.webp",
+        width: 1440,
+        height: 900,
+        alt: {
+          fr: "Carrousel « Le terrain en images » : un van au bord de l'étang et un enfant en kayak",
+          en: "\"The field in pictures\" carousel: a van by the pond and a child in a kayak",
+        },
+      },
+      {
+        src: "/projects/camping/mobile.webp",
+        width: 780,
+        height: 1688,
+        alt: {
+          fr: "Page d'accueil sur mobile : titre, accroche et bouton « Réserver maintenant » sur une photo de sous-bois",
+          en: "Home page on mobile: title, tagline and \"Book now\" button over a woodland photo",
+        },
+      },
+    ],
   },
   {
     slug: "gestionnaire-de-championnats",
@@ -299,8 +366,8 @@ export const projects: Project[] = [
         width: 1440,
         height: 900,
         alt: {
-          fr: "Épreuves de natation découpées en séries, avec le nombre de résultats saisis, dont un forfait et une disqualification",
-          en: "Swimming events split into heats, with the number of results entered, including a no-show and a disqualification",
+          fr: "Séries de 50 m brasse dépliées : couloir, dossard, club, rang et temps au centième, avec un forfait (DNS) et une disqualification",
+          en: "50 m breaststroke heats expanded: lane, bib, club, rank and time to the hundredth, with a no-show (DNS) and a disqualification",
         },
       },
     ],
