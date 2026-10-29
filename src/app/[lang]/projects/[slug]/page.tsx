@@ -135,14 +135,14 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
               {project.gallery.map((image) => (
                 <li key={image.src}>
                   <figure className="flex flex-col gap-3">
-                    <a href={image.src} className="block overflow-hidden rounded-xl border border-border hover:border-border-strong">
+                    <a href={image.src} className="block aspect-[16/10] overflow-hidden rounded-xl border border-border bg-bg-subtle hover:border-border-strong">
                       <Image
                         src={image.src}
                         alt={image.alt[lang]}
                         width={image.width}
                         height={image.height}
                         sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
-                        className="h-auto w-full"
+                        className="size-full object-contain"
                       />
                     </a>
                     <figcaption className="text-sm text-fg-muted">{image.alt[lang]}</figcaption>
