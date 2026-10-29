@@ -269,8 +269,8 @@ export const projects: Project[] = [
       width: 1440,
       height: 900,
       alt: {
-        fr: "Gestionnaire de championnats en mode sombre : classement général sur trois journées, avec le nombre de joueurs et de matchs et le tableau de la division 1",
-        en: "Championship manager in dark mode: general standings over three match days, with player and match counts and the division 1 table",
+        fr: "Gestionnaire de championnats en mode sombre : classement général sur trois journées et 50 matchs, avec les actions de mise à jour et d'export et le tableau de la division 1",
+        en: "Championship manager in dark mode: general standings over three match days and 50 matches, with update and export actions and the division 1 table",
       },
     },
   },
